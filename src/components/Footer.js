@@ -10,10 +10,10 @@ export default function Footer() {
                         <Link href="/" className={styles.logo}><div className={styles.logoMark}>L</div> LuminexLabs</Link>
                         <p>Building the future with AI-driven solutions. Ideas into scalable, intelligent products.</p>
                         <div className={styles.socials}>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener">in</a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener">𝕏</a>
-                            <a href="https://github.com" target="_blank" rel="noopener">GH</a>
-                            <a href="https://instagram.com" target="_blank" rel="noopener">IG</a>
+                            <a href="https://www.linkedin.com/company/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                            <a href="https://x.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">𝕏</a>
+                            <a href="https://github.com/edulancehub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
+                            <a href="https://www.instagram.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
                         </div>
                     </div>
                     <div className={styles.col}>

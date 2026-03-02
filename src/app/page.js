@@ -52,11 +52,12 @@ export default function Home() {
         </div>
 
         <div className={styles.heroContent}>
+          <div className={styles.heroBadge}>✨ AI-Powered Software Agency</div>
           <h1 className={styles.heroTitle}>Your trusted <em>AI-driven</em><br />software partner</h1>
           <p className={styles.heroSubtitle}>We build intelligent software — AI-powered websites, smart apps, RAG pipelines, and automation systems that make the most impact.</p>
           <div className={styles.heroCta}>
             <Link href="/get-started" className="btn btn-accent">Get Started 🚀</Link>
-            <Link href="#services" className="btn btn-secondary">Our Services</Link>
+            <Link href="/#services" className="btn btn-secondary">Our Services</Link>
           </div>
         </div>
 

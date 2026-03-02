@@ -255,7 +255,8 @@
     }
 
     .inputArea input {
-        font-size: 16px; /* prevents iOS zoom */
+        font-size: 16px;
+        /* prevents iOS zoom */
         padding: 10px 14px;
     }
 

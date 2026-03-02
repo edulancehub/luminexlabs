@@ -16,15 +16,27 @@ export const metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'icon', url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { rel: 'manifest', url: '/site.webmanifest' },
+    ],
+  },
+  other: {
+    'theme-color': '#e8734a',
+    'msapplication-TileColor': '#e8734a',
   },
   openGraph: {
     title: 'LuminexLabs — AI-Driven Software Solutions',
     description: 'Build intelligent software with LuminexLabs — AI websites ($300), smart apps ($500), RAG, automation, and cyber security. Best web & app development in Bangladesh.',
     url: 'https://luminexlabs.io',
     siteName: 'LuminexLabs',
-    images: [{ url: '/favicon.png', width: 512, height: 512, alt: 'LuminexLabs Logo' }],
+    images: [{ url: '/icon-512.png', width: 512, height: 512, alt: 'LuminexLabs Logo' }],
     locale: 'en_US',
     type: 'website',
   },
@@ -32,7 +44,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'LuminexLabs — AI-Driven Software Solutions',
     description: 'Build intelligent software with LuminexLabs — AI websites, smart apps, RAG, automation, and cyber security.',
-    images: ['/favicon.png'],
+    images: ['/icon-512.png'],
   },
   robots: {
     index: true,
@@ -53,7 +65,7 @@ const jsonLd = {
   '@type': 'Organization',
   name: 'LuminexLabs',
   url: 'https://luminexlabs.io',
-  logo: 'https://luminexlabs.io/favicon.png',
+  logo: 'https://luminexlabs.io/icon-512.png',
   description: 'AI-driven software company specializing in web development, app development, RAG, AI chatbots, automation, and cyber security.',
   foundingDate: '2024',
   areaServed: [

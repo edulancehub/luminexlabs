@@ -72,6 +72,10 @@
     gap: 6px;
     transition: all 0.25s;
     white-space: nowrap;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
 }
 
 .menuLink:hover {
@@ -83,6 +87,11 @@
     font-size: 0.65rem;
     opacity: 0.5;
     transition: transform 0.3s;
+    display: inline-block;
+}
+
+.arrowOpen {
+    transform: rotate(180deg);
 }
 
 .hasDropdown:hover .arrow {
@@ -210,6 +219,9 @@
     display: none;
 }
 
+/* Dropdown open indicator */
+.dropdownOpen {}
+
 /* Overlay */
 .overlay {
     display: none;
@@ -277,6 +289,7 @@
         padding: 14px 16px;
         border-radius: 12px;
         transition: background 0.2s;
+        width: 100%;
     }
 
     .menuLink:active {
