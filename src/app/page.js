@@ -2,7 +2,76 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  SiOpenai,
+  SiAnthropic,
+  SiGoogle,
+  SiMeta,
+  SiLangchain,
+  SiHuggingface,
+  SiTensorflow,
+  SiPytorch,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPython,
+  SiFastapi,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiSupabase,
+  SiFirebase,
+  SiAmazon,
+  SiDocker,
+  SiKubernetes,
+  SiCloudflare,
+  SiVercel,
+  SiStripe,
+  SiTwilio,
+  SiFigma,
+  SiTailwindcss,
+  SiThreedotjs,
+  SiFramer,
+  SiGithubactions,
+  SiDatadog,
+  SiSentry
+} from 'react-icons/si';
 import styles from './page.module.css';
+
+const techLogos = [
+  { name: 'OpenAI', icon: SiOpenai, color: '#10a37f' },
+  { name: 'Anthropic', icon: SiAnthropic, color: '#d4a373' },
+  { name: 'Gemini', icon: SiGoogle, color: '#4285F4' },
+  { name: 'Meta AI', icon: SiMeta, color: '#0866FF' },
+  { name: 'LangChain', icon: SiLangchain, color: '#ffffff' },
+  { name: 'Hugging Face', icon: SiHuggingface, color: '#ffd21e' },
+  { name: 'TensorFlow', icon: SiTensorflow, color: '#ff6f00' },
+  { name: 'PyTorch', icon: SiPytorch, color: '#ee4c2c' },
+  { name: 'React', icon: SiReact, color: '#61dafb' },
+  { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff' },
+  { name: 'Node.js', icon: SiNodedotjs, color: '#5fa04e' },
+  { name: 'Python', icon: SiPython, color: '#3776ab' },
+  { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+  { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169e1' },
+  { name: 'MongoDB', icon: SiMongodb, color: '#47a248' },
+  { name: 'Redis', icon: SiRedis, color: '#dc382d' },
+  { name: 'Supabase', icon: SiSupabase, color: '#3ecf8e' },
+  { name: 'Firebase', icon: SiFirebase, color: '#ffca28' },
+  { name: 'AWS', icon: SiAmazon, color: '#ff9900' },
+  { name: 'Docker', icon: SiDocker, color: '#2496ed' },
+  { name: 'Kubernetes', icon: SiKubernetes, color: '#326ce5' },
+  { name: 'Cloudflare', icon: SiCloudflare, color: '#f38020' },
+  { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
+  { name: 'Stripe', icon: SiStripe, color: '#635bff' },
+  { name: 'Twilio', icon: SiTwilio, color: '#f22f46' },
+  { name: 'Figma', icon: SiFigma, color: '#f24e1e' },
+  { name: 'Tailwind', icon: SiTailwindcss, color: '#06b6d4' },
+  { name: 'Three.js', icon: SiThreedotjs, color: '#ffffff' },
+  { name: 'Framer', icon: SiFramer, color: '#0055ff' },
+  { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088ff' },
+  { name: 'Datadog', icon: SiDatadog, color: '#632ca6' },
+  { name: 'Sentry', icon: SiSentry, color: '#ffffff' }
+];
 
 export default function Home() {
   useEffect(() => {
@@ -255,25 +324,18 @@ export default function Home() {
           <div className="text-center reveal">
             <span className="section-eyebrow"><span className="dot" /> Technology</span>
             <h2 className="section-heading">Our tech stack</h2>
-            <p className="section-desc mx-auto">We leverage 80+ cutting-edge tools and frameworks to deliver exceptional results.</p>
+            <p className="section-desc mx-auto">Real tools. Real engineering. Real outcomes — powered by world-class platforms.</p>
           </div>
-          <div className={styles.techGrid + ' reveal'}>
-            {[
-              ['OpenAI', 'LangChain', 'Hugging Face', 'Gemini', 'Claude', 'Meta AI', 'TensorFlow', 'PyTorch'],
-              ['React', 'Next.js', 'Vue', 'Angular', 'Svelte', 'Flutter', 'React Native', 'Swift'],
-              ['Node.js', 'Python', 'FastAPI', 'Django', 'Express', 'NestJS', 'Go', 'Rust'],
-              ['PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'Firebase', 'Prisma', 'GraphQL', 'Pinecone'],
-              ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Docker', 'Kubernetes', 'Terraform', 'Cloudflare'],
-              ['Stripe', 'Twilio', 'SendGrid', 'Segment', 'Mixpanel', 'Sentry', 'n8n', 'Zapier'],
-              ['Figma', 'Tailwind', 'Three.js', 'Framer Motion', 'Storybook', 'Cypress', 'Jest', 'Playwright'],
-              ['Git', 'GitHub Actions', 'Jenkins', 'Grafana', 'Datadog', 'Notion', 'Linear', 'Slack']
-            ].map((row, ri) => (
-              <div key={ri} className={styles.techRow} style={{ animationDelay: `${ri * 0.08}s` }}>
-                {row.map((tech) => (
-                  <div key={tech} className={styles.techBadge}>
-                    {tech}
-                  </div>
-                ))}
+          <div className={styles.techMeta + ' reveal'}>
+            <div><strong>32+</strong><span>Core Technologies</span></div>
+            <div><strong>8</strong><span>Product Categories</span></div>
+            <div><strong>24/7</strong><span>Production Monitoring</span></div>
+          </div>
+          <div className={styles.techLogoGrid + ' reveal'}>
+            {techLogos.map(({ name, icon: Icon, color }) => (
+              <div key={name} className={styles.techLogoCard}>
+                <Icon className={styles.techLogoIcon} style={{ color }} aria-hidden="true" />
+                <span>{name}</span>
               </div>
             ))}
           </div>
