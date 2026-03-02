@@ -1,0 +1,124 @@
+.footer {
+    padding: 72px 0 32px;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-body);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 44px;
+    margin-bottom: 56px;
+}
+
+.brand p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 280px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+.logoMark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: white;
+}
+
+.socials {
+    display: flex;
+    gap: 8px;
+}
+
+.socials a {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: all 0.4s;
+}
+
+.socials a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin-bottom: 20px;
+}
+
+.col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.col ul a {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.col ul a:hover {
+    color: var(--accent);
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

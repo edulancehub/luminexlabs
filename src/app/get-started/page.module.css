@@ -1,0 +1,120 @@
+.hero {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-cream);
+    position: relative;
+    overflow: hidden;
+    padding: 140px 20px 60px;
+}
+
+.formSection {
+    padding: 80px 0 120px;
+    background: var(--bg-body);
+}
+
+.formCard {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 44px;
+    border-radius: 32px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 36px rgba(0, 0, 0, .03);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: .8rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: var(--text-secondary);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-light);
+    background: var(--bg-body);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: .88rem;
+    transition: all .2s;
+    outline: none;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(232, 115, 74, .08);
+    background: var(--bg-white);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 720px;
+    margin: 40px auto 0;
+}
+
+.benefitItem {
+    text-align: center;
+    padding: 28px 16px;
+    border-radius: 24px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+}
+
+.benefitIcon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.benefitItem h4 {
+    font-size: .88rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.benefitItem p {
+    font-size: .78rem;
+    color: var(--text-tertiary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .formCard {
+        padding: 28px;
+    }
+}

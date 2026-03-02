@@ -1,0 +1,230 @@
+.trigger {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--bg-dark);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trigger:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 44px rgba(0, 0, 0, 0.25);
+}
+
+.trigger.open {
+    background: #333;
+}
+
+.panel {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    z-index: 9998;
+    width: 380px;
+    max-height: 520px;
+    background: var(--bg-white);
+    border-radius: 24px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.panelOpen {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.header {
+    padding: 22px 24px;
+    background: var(--bg-dark);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.info h4 {
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.info p {
+    font-size: 0.72rem;
+    opacity: 0.6;
+}
+
+.status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    margin-left: auto;
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 260px;
+    max-height: 320px;
+}
+
+.msg {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    animation: fadeUp 0.3s ease;
+}
+
+.bot {
+    background: var(--bg-cream);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+
+.user {
+    background: var(--bg-dark);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+.typing {
+    display: flex;
+    gap: 4px;
+    padding: 12px 18px;
+}
+
+.typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-tertiary);
+    animation: bounce 1.4s ease-in-out infinite;
+}
+
+.typing span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.inputArea {
+    display: flex;
+    padding: 16px;
+    border-top: 1px solid var(--border-light);
+    gap: 10px;
+}
+
+.inputArea input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border-light);
+    background: var(--bg-body);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputArea input:focus {
+    border-color: var(--accent);
+}
+
+.inputArea button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.inputArea button:hover {
+    background: #d4613a;
+}
+
+.inputArea button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 480px) {
+    .panel {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 90px;
+    }
+
+    .trigger {
+        bottom: 20px;
+        right: 20px;
+    }
+}

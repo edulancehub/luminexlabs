@@ -1,0 +1,268 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 14px 0;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar.scrolled {
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 0;
+}
+
+.inner {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.logoIcon {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Menu - Centered */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menuItem {
+    position: relative;
+}
+
+.menuLink {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s;
+    white-space: nowrap;
+}
+
+.menuLink:hover {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.arrow {
+    font-size: 0.65rem;
+    opacity: 0.5;
+    transition: transform 0.3s;
+}
+
+.hasDropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 8px;
+    min-width: 240px;
+    z-index: 100;
+}
+
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-white);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.dropdownItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    margin: 4px 8px;
+}
+
+.dropdownItem:hover {
+    color: var(--text-primary);
+    background: var(--bg-cream);
+}
+
+.dropdownEmoji {
+    font-size: 1.05rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Right */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chatBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 26px;
+    border-radius: 999px;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    font-size: 0.84rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    transition: all 0.4s;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
+}
+
+.chatBtn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(232, 115, 74, 0.25);
+}
+
+.chatBtn span {
+    font-size: 1rem;
+}
+
+/* Toggle */
+.toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    background: none;
+    border: none;
+    z-index: 1001;
+}
+
+.toggle span {
+    width: 22px;
+    height: 1.5px;
+    background: var(--text-primary);
+    transition: all 0.3s;
+    display: block;
+}
+
+.toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 5px);
+}
+
+.toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -5px);
+}
+
+@media (max-width: 1024px) {
+    .menu {
+        position: static;
+        transform: none;
+    }
+
+    .inner {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .toggle {
+        display: flex;
+    }
+
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--bg-white);
+        flex-direction: column;
+        justify-content: center;
+        padding: 48px 32px;
+        gap: 6px;
+        transition: right 0.4s;
+        border-left: 1px solid var(--border-light);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.06);
+        transform: none;
+    }
+
+    .menu.mobileOpen {
+        right: 0;
+    }
+
+    .menuLink {
+        font-size: 1.1rem;
+        padding: 14px 16px;
+    }
+
+    .dropdown {
+        position: static;
+        transform: none;
+        padding: 0 0 0 24px;
+        min-width: auto;
+    }
+
+    .dropdown::before {
+        display: none;
+    }
+
+    .dropdownItem {
+        padding: 10px 12px;
+    }
+
+    .right .chatBtn {
+        display: none;
+    }
+}
