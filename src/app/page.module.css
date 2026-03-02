@@ -674,6 +674,8 @@
   border: 1px solid var(--border-light);
   box-shadow: 0 12px 48px rgba(0, 0, 0, .04);
   transition: box-shadow 0.4s;
+  position: relative;
+  z-index: 2;
 }
 
 .formCard:hover {
@@ -711,6 +713,8 @@
   font-size: .88rem;
   transition: all .2s;
   outline: none;
+  touch-action: manipulation;
+  -webkit-appearance: none;
 }
 
 .formGroup input:focus,
@@ -748,6 +752,7 @@
   font-size: 0.84rem;
   line-height: 1.5;
   animation: toastIn 0.25s ease-out;
+  pointer-events: none;
 }
 
 /* === Expertise Radar Section === */
@@ -1406,6 +1411,12 @@
     gap: 32px;
   }
 
+  .formCard {
+    width: 100%;
+    overflow: visible;
+    transform: none;
+  }
+
   .contactTitle {
     font-size: 1.5rem;
   }
@@ -1445,6 +1456,11 @@
     padding: 12px 14px;
     font-size: 16px;
     /* prevents iOS zoom */
+    min-height: 46px;
+  }
+
+  .formGroup textarea {
+    min-height: 120px;
   }
 
   .formSuccessToast {

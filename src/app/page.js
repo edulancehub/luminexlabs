@@ -436,7 +436,7 @@ export default function Home() {
                 <div className={styles.contactDetail}><div className={styles.detailIcon}>🌍</div><div><strong>Operating From</strong><p>🇸🇦 🇺🇸 🇬🇧 🇧🇩</p></div></div>
               </div>
             </div>
-            <div className={styles.formCard + ' reveal reveal-delay-2'}>
+            <div className={styles.formCard}>
               <form onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
