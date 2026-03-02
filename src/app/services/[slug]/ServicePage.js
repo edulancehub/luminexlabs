@@ -1,9 +1,13 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useForm, ValidationError } from '@formspree/react';
 import styles from './page.module.css';
 
 export default function ServicePage({ data, slug, related }) {
+    const [formState, handleSubmit] = useForm('xgollwde');
+    const [showSuccessToast, setShowSuccessToast] = useState(false);
+
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -11,6 +15,13 @@ export default function ServicePage({ data, slug, related }) {
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         return () => observer.disconnect();
     }, [slug]);
+
+    useEffect(() => {
+        if (!formState.succeeded) return;
+        setShowSuccessToast(true);
+        const timer = setTimeout(() => setShowSuccessToast(false), 5000);
+        return () => clearTimeout(timer);
+    }, [formState.succeeded]);
 
     if (!data) return null;
 
@@ -58,13 +69,19 @@ export default function ServicePage({ data, slug, related }) {
                             <div className={styles.formCard}>
                                 <h3 className={styles.formTitle}>Interested?</h3>
                                 <p className={styles.formSubtitle}>Fill in your details and we&apos;ll provide a free proposal.</p>
-                                <form action="https://formspree.io/f/xgollwde" method="POST">
+                                <form onSubmit={handleSubmit}>
                                     <input type="hidden" name="service_interest" value={data.title} />
                                     <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                                    <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+                                    <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required />
+                                        <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
+                                    </div>
                                     <div className={styles.formGroup}><label>Phone</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
-                                    <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required /></div>
-                                    <button type="submit" className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>Get Free Proposal →</button>
+                                    <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required />
+                                        <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
+                                    </div>
+                                    <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
+                                        {formState.submitting ? 'Submitting...' : 'Get Free Proposal →'}
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -90,6 +107,12 @@ export default function ServicePage({ data, slug, related }) {
                     </div>
                 </div>
             </section>
+
+            {showSuccessToast && (
+                <div className={styles.formSuccessToast} role="status" aria-live="polite">
+                    ✅ Submitted successfully.
+                </div>
+            )}
         </>
     );
 }
