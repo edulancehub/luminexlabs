@@ -218,13 +218,62 @@
 
 @media (max-width: 480px) {
     .panel {
-        width: calc(100vw - 32px);
-        right: 16px;
-        bottom: 90px;
+        width: calc(100vw - 24px);
+        right: 12px;
+        bottom: 88px;
+        max-height: calc(100dvh - 120px);
+        border-radius: 20px;
     }
 
     .trigger {
-        bottom: 20px;
-        right: 20px;
+        bottom: 18px;
+        right: 18px;
+        width: 54px;
+        height: 54px;
+        font-size: 1.3rem;
+    }
+
+    .header {
+        padding: 18px 20px;
+    }
+
+    .messages {
+        padding: 16px;
+        min-height: 200px;
+        max-height: 280px;
+    }
+
+    .msg {
+        max-width: 88%;
+        font-size: 0.83rem;
+        padding: 10px 14px;
+    }
+
+    .inputArea {
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .inputArea input {
+        font-size: 16px; /* prevents iOS zoom */
+        padding: 10px 14px;
+    }
+
+    .inputArea button {
+        width: 38px;
+        height: 38px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .panel {
+        right: 8px;
+        width: calc(100vw - 16px);
+    }
+
+    .trigger {
+        bottom: 14px;
+        right: 14px;
     }
 }

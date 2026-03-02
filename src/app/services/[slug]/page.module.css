@@ -213,11 +213,87 @@
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding: 110px 20px 50px;
+        min-height: auto;
+    }
+
+    .icon {
+        font-size: 2.8rem;
+        margin-bottom: 16px;
+    }
+
+    .body {
+        padding: 48px 0 24px;
+    }
+
     .content {
         grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .aboutTitle {
+        font-size: 1.45rem;
+    }
+
+    .aboutDesc {
+        font-size: 0.9rem;
+    }
+
+    .sidebar {
+        position: static;
+    }
+
+    .formCard {
+        position: static;
+        padding: 24px 20px;
+        border-radius: 24px;
+    }
+
+    .formTitle {
+        font-size: 1.15rem;
+    }
+
+    .formGroup input,
+    .formGroup textarea {
+        font-size: 16px; /* prevents iOS zoom */
+        padding: 12px 14px;
+    }
+
+    .techTags {
+        gap: 6px;
+    }
+
+    .techTag {
+        padding: 6px 14px;
+        font-size: 0.74rem;
+    }
+
+    .relatedSection {
+        padding: 56px 0;
     }
 
     .relatedGrid {
         grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .relatedCard {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .relatedCard:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero {
+        padding: 100px 16px 40px;
+    }
+
+    .formCard {
+        padding: 20px 16px;
     }
 }

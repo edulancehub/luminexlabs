@@ -45,6 +45,9 @@ export default function Navbar() {
                     <span>luminexlabs</span>
                 </Link>
 
+                {/* Overlay backdrop for mobile */}
+                {mobileOpen && <div className={styles.overlay} onClick={() => setMobileOpen(false)} />}
+
                 <ul className={`${styles.menu} ${mobileOpen ? styles.mobileOpen : ''}`}>
                     {menuItems.map((item) => (
                         <li
@@ -69,6 +72,12 @@ export default function Navbar() {
                             )}
                         </li>
                     ))}
+                    {/* Mobile-only CTA */}
+                    <li className={styles.mobileCta}>
+                        <Link href="/get-started" className={styles.chatBtn} onClick={() => setMobileOpen(false)}>
+                            Let&apos;s chat <span>👋</span>
+                        </Link>
+                    </li>
                 </ul>
 
                 <div className={styles.right}>

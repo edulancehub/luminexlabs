@@ -612,55 +612,217 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 80px 20px 50px;
+    padding: 100px 20px 40px;
+    min-height: auto;
   }
 
   .pills {
     flex-direction: column;
     gap: 10px;
+    margin-bottom: 36px;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .pill {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 16px;
+    gap: 14px;
+  }
+
+  .pill span:first-child {
+    font-size: 1.4rem;
+  }
+
+  .pill strong {
+    font-size: 0.88rem;
+  }
+
+  .heroContent {
+    padding: 0 4px;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    margin-bottom: 18px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+
+  .heroCta {
+    gap: 10px;
   }
 
   .stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 16px;
+    margin-top: 48px;
+    width: 100%;
+    max-width: 360px;
   }
 
   .stat {
     border-right: none;
-    padding: 10px 0;
+    padding: 16px 12px;
+    background: var(--bg-white);
+    border-radius: 16px;
+    border: 1px solid var(--border-light);
   }
 
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.65rem;
+    margin-top: 6px;
+  }
+
+  /* About */
   .aboutGrid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 
+  .aboutSecondary {
+    font-size: 0.88rem;
+    margin: 12px 0 28px;
+  }
+
+  .portfolioRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .portfolioCard,
+  .portfolioCardSmall {
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  /* Services */
   .servicesHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 16px;
+    margin-bottom: 40px;
   }
 
   .serviceRow {
-    grid-template-columns: 50px 1fr 44px;
+    grid-template-columns: 40px 1fr 36px;
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .serviceNum {
+    font-size: 0.75rem;
+  }
+
+  .serviceName {
+    font-size: 1.1rem;
   }
 
   .serviceEmoji {
     display: none;
   }
 
+  .serviceArrow {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+
+  /* Pricing */
   .pricingGrid {
     grid-template-columns: 1fr;
-    max-width: 400px;
+    max-width: 100%;
+    gap: 20px;
   }
 
+  .pricingCard {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .pricingCard:hover {
+    transform: none;
+  }
+
+  .pricingCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .price {
+    font-size: 3rem;
+  }
+
+  .features li {
+    font-size: 0.84rem;
+  }
+
+  /* Presence */
   .presenceGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
+  .presenceCard {
+    padding: 28px 14px;
+    border-radius: 20px;
+  }
+
+  .presenceCard:hover {
+    transform: none;
+  }
+
+  .presenceFlag {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .presenceCard h3 {
+    font-size: 0.95rem;
+  }
+
+  .presenceCard p {
+    font-size: 0.72rem;
+  }
+
+  /* Contact */
   .contactWrapper {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
+  }
+
+  .contactTitle {
+    font-size: 1.5rem;
+  }
+
+  .contactDesc {
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+  }
+
+  .contactDetail {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+
+  .contactDetail:hover {
+    transform: none;
+  }
+
+  .detailIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
   }
 
   .formRow {
@@ -668,10 +830,58 @@
   }
 
   .formCard {
-    padding: 28px;
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea {
+    padding: 12px 14px;
+    font-size: 16px;
+    /* prevents iOS zoom */
   }
 
   .portfolioRow {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+  .hero {
+    padding: 90px 16px 32px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .pills {
+    max-width: 100%;
+  }
+
+  .stats {
+    max-width: 100%;
+  }
+
+  .stat {
+    padding: 12px 8px;
+  }
+
+  .statNumber {
+    font-size: 1.6rem;
+  }
+
+  .pricingCard {
+    padding: 28px 18px;
+  }
+
+  .presenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formCard {
+    padding: 20px 16px;
   }
 }

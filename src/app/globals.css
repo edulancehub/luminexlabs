@@ -302,15 +302,71 @@ img {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
   .container {
-    padding: 0 20px;
+    padding: 0 18px;
   }
 
   .section {
-    padding: 72px 0;
+    padding: 64px 0;
+  }
+
+  .section-heading {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    margin-bottom: 14px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    margin-bottom: 18px;
+  }
+
+  .section-desc {
+    font-size: 0.92rem;
+    line-height: 1.7;
   }
 
   .bg-character {
-    font-size: 160px;
+    font-size: 140px;
+    opacity: 0.025;
+  }
+
+  .btn {
+    font-size: 0.84rem;
+  }
+
+  .btn-primary,
+  .btn-accent,
+  .btn-secondary {
+    padding: 14px 28px;
+  }
+
+  .marquee-item {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .marquee-track {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .btn-primary,
+  .btn-accent,
+  .btn-secondary {
+    padding: 13px 22px;
+    font-size: 0.82rem;
   }
 }

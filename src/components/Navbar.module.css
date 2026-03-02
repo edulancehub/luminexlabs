@@ -205,6 +205,16 @@
     transform: rotate(-45deg) translate(4px, -5px);
 }
 
+/* Mobile CTA (visible only inside mobile menu) */
+.mobileCta {
+    display: none;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .menu {
         position: static;
@@ -213,44 +223,70 @@
 
     .inner {
         gap: 16px;
+        padding: 0 24px;
     }
 }
 
 @media (max-width: 768px) {
+    .inner {
+        padding: 0 16px;
+    }
+
     .toggle {
         display: flex;
+    }
+
+    /* Full-screen overlay */
+    .overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        animation: fadeIn 0.3s ease;
     }
 
     .menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 300px;
-        height: 100vh;
+        right: 0;
+        width: min(85vw, 320px);
+        height: 100dvh;
         background: var(--bg-white);
         flex-direction: column;
         justify-content: center;
-        padding: 48px 32px;
-        gap: 6px;
-        transition: right 0.4s;
+        align-items: stretch;
+        padding: 80px 28px 40px;
+        gap: 4px;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         border-left: 1px solid var(--border-light);
-        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.06);
-        transform: none;
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+        z-index: 1000;
+        overflow-y: auto;
     }
 
     .menu.mobileOpen {
-        right: 0;
+        transform: translateX(0);
     }
 
     .menuLink {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         padding: 14px 16px;
+        border-radius: 12px;
+        transition: background 0.2s;
+    }
+
+    .menuLink:active {
+        background: var(--bg-cream);
     }
 
     .dropdown {
         position: static;
         transform: none;
-        padding: 0 0 0 24px;
+        padding: 0 0 8px 16px;
         min-width: auto;
     }
 
@@ -260,9 +296,36 @@
 
     .dropdownItem {
         padding: 10px 12px;
+        margin: 2px 0;
+        border-radius: 10px;
+    }
+
+    .dropdownItem:active {
+        background: var(--bg-cream);
+    }
+
+    .mobileCta {
+        display: block;
+        margin-top: 16px;
+        padding: 0 16px;
+    }
+
+    .mobileCta .chatBtn {
+        width: 100%;
+        justify-content: center;
     }
 
     .right .chatBtn {
         display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
