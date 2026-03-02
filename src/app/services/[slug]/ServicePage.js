@@ -2,7 +2,93 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useForm, ValidationError } from '@formspree/react';
+import {
+    SiReact,
+    SiNextdotjs,
+    SiTailwindcss,
+    SiOpenai,
+    SiVercel,
+    SiGoogle,
+    SiFlutter,
+    SiFirebase,
+    SiTensorflow,
+    SiNodedotjs,
+    SiPostgresql,
+    SiLangchain,
+    SiPython,
+    SiFastapi,
+    SiDocker,
+    SiKubernetes,
+    SiTwilio
+} from 'react-icons/si';
+import {
+    FaCode,
+    FaShieldAlt,
+    FaBug,
+    FaDatabase,
+    FaChartLine,
+    FaCogs,
+    FaRobot,
+    FaSitemap,
+    FaGlobe
+} from 'react-icons/fa';
 import styles from './page.module.css';
+
+const techIconMap = {
+    react: SiReact,
+    nextjs: SiNextdotjs,
+    tailwindcss: SiTailwindcss,
+    openai: SiOpenai,
+    vercel: SiVercel,
+    googleanalytics: SiGoogle,
+    flutter: SiFlutter,
+    reactnative: SiReact,
+    firebase: SiFirebase,
+    tensorflowlite: SiTensorflow,
+    nodejs: SiNodedotjs,
+    postgresql: SiPostgresql,
+    pinecone: FaDatabase,
+    langchain: SiLangchain,
+    openaiembeddings: SiOpenai,
+    python: SiPython,
+    fastapi: SiFastapi,
+    n8n: FaSitemap,
+    webhooks: FaSitemap,
+    restapis: FaGlobe,
+    langflow: SiLangchain,
+    langgraph: SiLangchain,
+    claude: FaRobot,
+    siem: FaShieldAlt,
+    idsips: FaShieldAlt,
+    burpsuite: FaBug,
+    nmap: FaShieldAlt,
+    gpt4: SiOpenai,
+    dialogflow: SiGoogle,
+    twilio: SiTwilio,
+    websocket: FaSitemap,
+    tensorflow: SiTensorflow,
+    scikitlearn: FaRobot,
+    tableau: FaChartLine,
+    powerbi: FaChartLine,
+    sql: FaDatabase,
+    strategyframeworks: FaCogs,
+    dataassessment: FaChartLine,
+    roimodeling: FaChartLine,
+    changemanagement: FaCogs,
+    workshops: FaSitemap,
+    documentation: FaCode,
+    chromadb: FaDatabase,
+    docker: SiDocker,
+    kubernetes: SiKubernetes
+};
+
+function normalizeTechLabel(value) {
+    return value.toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+function getTechIcon(value) {
+    return techIconMap[normalizeTechLabel(value)] || FaCode;
+}
 
 export default function ServicePage({ data, slug, related }) {
     const [formState, handleSubmit] = useForm('xgollwde');
@@ -60,7 +146,15 @@ export default function ServicePage({ data, slug, related }) {
                             <div className={styles.techSection}>
                                 <h3>Technology Stack</h3>
                                 <div className={styles.techTags}>
-                                    {(data.tech || []).map(t => <span key={t} className={styles.techTag}>{t}</span>)}
+                                    {(data.tech || []).map(t => {
+                                        const TechIcon = getTechIcon(t);
+                                        return (
+                                            <span key={t} className={styles.techTag}>
+                                                <span className={styles.techTagIcon}><TechIcon aria-hidden="true" /></span>
+                                                <span>{t}</span>
+                                            </span>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         </div>
