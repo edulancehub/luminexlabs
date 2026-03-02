@@ -147,6 +147,139 @@ export default function Home() {
         </div>
       </section>
 
+      {/* EXPERTISE RADAR */}
+      <section className={`section ${styles.expertiseSection}`} id="expertise">
+        <div className="container">
+          <div className="text-center reveal">
+            <span className="section-eyebrow"><span className="dot" /> Expertise</span>
+            <h2 className="section-heading">Industries we dominate</h2>
+            <p className="section-desc mx-auto">Deep domain expertise across eight critical industries, powered by AI.</p>
+          </div>
+          <div className={styles.radarWrapper + ' reveal'}>
+            <div className={styles.radarChart}>
+              {/* SVG Radar / Spider Chart */}
+              <svg viewBox="0 0 500 500" className={styles.radarSvg}>
+                {/* Grid rings */}
+                {[0.2, 0.4, 0.6, 0.8, 1].map((scale, i) => (
+                  <polygon
+                    key={i}
+                    className={styles.radarRing}
+                    points={[0, 1, 2, 3, 4, 5, 6, 7].map(j => {
+                      const angle = (Math.PI * 2 * j) / 8 - Math.PI / 2;
+                      return `${250 + Math.cos(angle) * 180 * scale},${250 + Math.sin(angle) * 180 * scale}`;
+                    }).join(' ')}
+                  />
+                ))}
+                {/* Axis lines */}
+                {[0, 1, 2, 3, 4, 5, 6, 7].map(j => {
+                  const angle = (Math.PI * 2 * j) / 8 - Math.PI / 2;
+                  return (
+                    <line
+                      key={j}
+                      x1="250" y1="250"
+                      x2={250 + Math.cos(angle) * 180}
+                      y2={250 + Math.sin(angle) * 180}
+                      className={styles.radarAxis}
+                    />
+                  );
+                })}
+                {/* Data shape */}
+                <polygon
+                  className={styles.radarShape}
+                  points={[
+                    { v: 0.92 }, { v: 0.78 }, { v: 0.85 }, { v: 0.7 },
+                    { v: 0.88 }, { v: 0.65 }, { v: 0.8 }, { v: 0.75 }
+                  ].map((d, j) => {
+                    const angle = (Math.PI * 2 * j) / 8 - Math.PI / 2;
+                    return `${250 + Math.cos(angle) * 180 * d.v},${250 + Math.sin(angle) * 180 * d.v}`;
+                  }).join(' ')}
+                />
+                {/* Data dots */}
+                {[
+                  { v: 0.92 }, { v: 0.78 }, { v: 0.85 }, { v: 0.7 },
+                  { v: 0.88 }, { v: 0.65 }, { v: 0.8 }, { v: 0.75 }
+                ].map((d, j) => {
+                  const angle = (Math.PI * 2 * j) / 8 - Math.PI / 2;
+                  return (
+                    <circle
+                      key={j}
+                      cx={250 + Math.cos(angle) * 180 * d.v}
+                      cy={250 + Math.sin(angle) * 180 * d.v}
+                      r="5"
+                      className={styles.radarDot}
+                    />
+                  );
+                })}
+              </svg>
+              {/* Labels around the chart */}
+              {[
+                { label: 'AI', icon: '🤖', pos: 'top' },
+                { label: 'FinTech', icon: '💰', pos: 'topRight' },
+                { label: 'EdTech', icon: '📚', pos: 'right' },
+                { label: 'Logistics', icon: '🚚', pos: 'bottomRight' },
+                { label: 'SaaS', icon: '☁️', pos: 'bottom' },
+                { label: 'PropTech', icon: '🏠', pos: 'bottomLeft' },
+                { label: 'HealthTech', icon: '🏥', pos: 'left' },
+                { label: 'CRM', icon: '📊', pos: 'topLeft' }
+              ].map((item, i) => (
+                <div key={i} className={`${styles.radarLabel} ${styles['radarLabel_' + item.pos]}`}>
+                  <span className={styles.radarLabelIcon}>{item.icon}</span>
+                  <span className={styles.radarLabelText}>{item.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className={styles.expertiseRight}>
+              <h3 className={styles.expertiseTitle}>We don&apos;t just build software — <em>we solve industry problems</em></h3>
+              <p className={styles.expertiseDesc}>Our team brings deep vertical expertise across AI, FinTech, EdTech, HealthTech, and more. We understand your domain so we can ship faster and smarter.</p>
+              <div className={styles.expertiseStats}>
+                {[
+                  { num: '8+', label: 'Industries' },
+                  { num: '92%', label: 'AI Expertise' },
+                  { num: '150+', label: 'Projects Shipped' }
+                ].map(s => (
+                  <div key={s.label} className={styles.expertiseStat}>
+                    <strong>{s.num}</strong>
+                    <span>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+              <Link href="/get-started" className="btn btn-accent">Fix Your Product 🚀</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TECH STACK */}
+      <section className={`section ${styles.techSection}`} id="techstack">
+        <div className="container">
+          <div className="text-center reveal">
+            <span className="section-eyebrow"><span className="dot" /> Technology</span>
+            <h2 className="section-heading">Our tech stack</h2>
+            <p className="section-desc mx-auto">We leverage 80+ cutting-edge tools and frameworks to deliver exceptional results.</p>
+          </div>
+          <div className={styles.techGrid + ' reveal'}>
+            {[
+              ['OpenAI', 'LangChain', 'Hugging Face', 'Gemini', 'Claude', 'Meta AI', 'TensorFlow', 'PyTorch'],
+              ['React', 'Next.js', 'Vue', 'Angular', 'Svelte', 'Flutter', 'React Native', 'Swift'],
+              ['Node.js', 'Python', 'FastAPI', 'Django', 'Express', 'NestJS', 'Go', 'Rust'],
+              ['PostgreSQL', 'MongoDB', 'Redis', 'Supabase', 'Firebase', 'Prisma', 'GraphQL', 'Pinecone'],
+              ['AWS', 'Google Cloud', 'Azure', 'Vercel', 'Docker', 'Kubernetes', 'Terraform', 'Cloudflare'],
+              ['Stripe', 'Twilio', 'SendGrid', 'Segment', 'Mixpanel', 'Sentry', 'n8n', 'Zapier'],
+              ['Figma', 'Tailwind', 'Three.js', 'Framer Motion', 'Storybook', 'Cypress', 'Jest', 'Playwright'],
+              ['Git', 'GitHub Actions', 'Jenkins', 'Grafana', 'Datadog', 'Notion', 'Linear', 'Slack']
+            ].map((row, ri) => (
+              <div key={ri} className={styles.techRow} style={{ animationDelay: `${ri * 0.08}s` }}>
+                {row.map((tech) => (
+                  <div key={tech} className={styles.techBadge}>
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section className="section section-cream" id="pricing">
         <div className="container">

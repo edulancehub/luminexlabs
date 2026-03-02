@@ -124,14 +124,14 @@ export default function Navbar() {
                     {/* Mobile-only CTA */}
                     <li className={styles.mobileCta}>
                         <Link href="/get-started" className={styles.chatBtn} onClick={closeMobile}>
-                            Let&apos;s chat <span>👋</span>
+                            Fix Your Product <span>🚀</span>
                         </Link>
                     </li>
                 </ul>
 
                 <div className={styles.right}>
                     <Link href="/get-started" className={styles.chatBtn}>
-                        Let&apos;s chat <span>👋</span>
+                        Fix Your Product <span>🚀</span>
                     </Link>
                 </div>
 
