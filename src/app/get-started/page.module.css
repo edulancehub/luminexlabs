@@ -87,6 +87,30 @@
     min-height: 110px;
 }
 
+.formError {
+    margin-top: 6px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #b84732;
+}
+
+.formSuccessToast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1200;
+    max-width: 360px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.35);
+    font-size: 0.84rem;
+    line-height: 1.5;
+    animation: toastIn 0.25s ease-out;
+}
+
 .benefits {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -157,6 +181,18 @@
     }
 }
 
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .hero {
         padding: 110px 20px 40px;
@@ -203,6 +239,13 @@
         font-size: 16px;
         /* prevents iOS zoom */
         padding: 12px 14px;
+    }
+
+    .formSuccessToast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        max-width: none;
     }
 }
 

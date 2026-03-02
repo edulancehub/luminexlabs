@@ -1,7 +1,8 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useForm, ValidationError } from '@formspree/react';
 import {
   SiOpenai,
   SiAnthropic,
@@ -74,6 +75,9 @@ const techLogos = [
 ];
 
 export default function Home() {
+  const [formState, handleSubmit] = useForm('xgollwde');
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+
   useEffect(() => {
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
@@ -106,6 +110,13 @@ export default function Home() {
       return () => window.removeEventListener('scroll', onScroll);
     }
   }, []);
+
+  useEffect(() => {
+    if (!formState.succeeded) return;
+    setShowSuccessToast(true);
+    const timer = setTimeout(() => setShowSuccessToast(false), 5000);
+    return () => clearTimeout(timer);
+  }, [formState.succeeded]);
 
   return (
     <>
@@ -426,10 +437,12 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.formCard + ' reveal reveal-delay-2'}>
-              <form action="https://formspree.io/f/xgollwde" method="POST">
+              <form onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                  <div className={styles.formGroup}><label>Email *</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+                  <div className={styles.formGroup}><label>Email *</label><input type="email" name="email" placeholder="john@example.com" required />
+                    <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
+                  </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}><label>Phone</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
@@ -448,13 +461,23 @@ export default function Home() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required /></div>
-                <button type="submit" className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>Send Message →</button>
+                <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required />
+                  <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
+                </div>
+                <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
+                  {formState.submitting ? 'Sending...' : 'Send Message →'}
+                </button>
               </form>
             </div>
           </div>
         </div>
       </section>
+
+      {showSuccessToast && (
+        <div className={styles.formSuccessToast} role="status" aria-live="polite">
+          ✅ Message submitted successfully. We&apos;ll get back to you within 24 hours.
+        </div>
+      )}
     </>
   );
 }

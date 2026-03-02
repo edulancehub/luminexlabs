@@ -1,15 +1,25 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import styles from './page.module.css';
 
 function GetStartedForm() {
     const searchParams = useSearchParams();
     const plan = searchParams.get('plan');
+    const [formState, handleSubmit] = useForm('xgollwde');
+    const [showSuccessToast, setShowSuccessToast] = useState(false);
 
     let defaultService = '';
     if (plan === 'website') defaultService = 'AI-Driven Website ($300)';
     else if (plan === 'app') defaultService = 'AI-Driven App ($500)';
+
+    useEffect(() => {
+        if (!formState.succeeded) return;
+        setShowSuccessToast(true);
+        const timer = setTimeout(() => setShowSuccessToast(false), 5000);
+        return () => clearTimeout(timer);
+    }, [formState.succeeded]);
 
     return (
         <>
@@ -24,10 +34,12 @@ function GetStartedForm() {
             <section className={styles.formSection}>
                 <div className="container">
                     <div className={styles.formCard}>
-                        <form action="https://formspree.io/f/xgollwde" method="POST">
+                        <form onSubmit={handleSubmit}>
                             <div className={styles.formRow}>
                                 <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                                <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required /></div>
+                                <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required />
+                                    <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
+                                </div>
                             </div>
                             <div className={styles.formRow}>
                                 <div className={styles.formGroup}><label>Phone Number</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
@@ -69,8 +81,12 @@ function GetStartedForm() {
                                     <option>Flexible timeline</option>
                                 </select>
                             </div>
-                            <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Describe your project, goals, and any specific requirements..." required style={{ minHeight: 160 }} /></div>
-                            <button type="submit" className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>Submit Your Project →</button>
+                            <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Describe your project, goals, and any specific requirements..." required style={{ minHeight: 160 }} />
+                                <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
+                            </div>
+                            <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
+                                {formState.submitting ? 'Submitting...' : 'Submit Your Project →'}
+                            </button>
                         </form>
                     </div>
                     <div className={styles.benefits}>
@@ -80,6 +96,12 @@ function GetStartedForm() {
                     </div>
                 </div>
             </section>
+
+            {showSuccessToast && (
+                <div className={styles.formSuccessToast} role="status" aria-live="polite">
+                    ✅ Project request submitted successfully. We&apos;ll contact you shortly.
+                </div>
+            )}
         </>
     );
 }
