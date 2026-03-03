@@ -1,7 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useForm, ValidationError } from '@formspree/react';
 import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodleArrowCurve, DoodlePlus, DoodleDots, DoodleCircle, DoodleSunBurst, DoodleZigzag, DoodleWave } from '@/components/Doodles';
 import AnimatedText from '@/components/AnimatedText';
@@ -79,6 +80,8 @@ const techLogos = [
 ];
 
 export default function Home() {
+  const pathname = usePathname();
+  const contactFormRef = useRef(null);
   const [formState, handleSubmit] = useForm('xgollwde');
   const [showSuccessToast, setShowSuccessToast] = useState(false);
 
@@ -117,10 +120,29 @@ export default function Home() {
 
   useEffect(() => {
     if (!formState.succeeded) return;
+    if (contactFormRef.current) contactFormRef.current.reset();
     setShowSuccessToast(true);
     const timer = setTimeout(() => setShowSuccessToast(false), 5000);
     return () => clearTimeout(timer);
   }, [formState.succeeded]);
+
+  useEffect(() => {
+    const pathToSection = {
+      '/about': 'about',
+      '/services': 'services',
+      '/pricing': 'pricing',
+      '/global': 'presence',
+      '/contact': 'contact',
+    };
+    const section = pathToSection[pathname];
+    if (!section) return;
+    const scrollTo = () => {
+      const target = document.getElementById(section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    const raf = requestAnimationFrame(scrollTo);
+    return () => cancelAnimationFrame(raf);
+  }, [pathname]);
 
   return (
     <>
@@ -462,7 +484,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.formCard}>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} ref={contactFormRef}>
                 <div className={styles.formRow}>
                   <div className={styles.formGroup}><label htmlFor="home-name">Full Name *</label><input id="home-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
                   <div className={styles.formGroup}><label htmlFor="home-email">Email *</label><input id="home-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
@@ -492,6 +514,11 @@ export default function Home() {
                 <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
                   {formState.submitting ? 'Sending...' : 'Send Message →'}
                 </button>
+                {formState.submitting && <p className={styles.formStatus}>Submitting your message...</p>}
+                {formState.succeeded && <p className={`${styles.formStatus} ${styles.formStatusSuccess}`}>✅ Submitted successfully. We&apos;ll contact you soon.</p>}
+                {!formState.submitting && !formState.succeeded && Array.isArray(formState.errors) && formState.errors.length > 0 && (
+                  <p className={`${styles.formStatus} ${styles.formStatusError}`}>Could not submit right now. Please try again.</p>
+                )}
               </form>
             </div>
           </div>

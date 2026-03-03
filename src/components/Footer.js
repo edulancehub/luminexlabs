@@ -35,16 +35,16 @@ export default function Footer() {
                             <li><Link href="/services/langchain">LangChain</Link></li>
                             <li><Link href="/services/consultancy">Consultancy</Link></li>
                             <li><Link href="/services/ai-business">AI for Business</Link></li>
-                            <li><Link href="/#pricing">Pricing</Link></li>
+                            <li><Link href="/pricing">Pricing</Link></li>
                         </ul>
                     </div>
                     <div className={styles.col}>
                         <h4>Company</h4>
                         <ul>
-                            <li><Link href="/#about">About Us</Link></li>
-                            <li><Link href="/#presence">Global Presence</Link></li>
+                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/global">Global Presence</Link></li>
                             <li><Link href="/get-started">Get Started</Link></li>
-                            <li><Link href="/get-started">Contact Us</Link></li>
+                            <li><Link href="/contact">Contact Us</Link></li>
                         </ul>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodlePlus, DoodleWave } from '@/components/Doodles';
 import AnimatedText from '@/components/AnimatedText';
@@ -9,6 +9,7 @@ import styles from './page.module.css';
 function GetStartedForm() {
     const searchParams = useSearchParams();
     const plan = searchParams.get('plan');
+    const formRef = useRef(null);
     const [formState, handleSubmit] = useForm('xgollwde');
     const [showSuccessToast, setShowSuccessToast] = useState(false);
 
@@ -18,6 +19,7 @@ function GetStartedForm() {
 
     useEffect(() => {
         if (!formState.succeeded) return;
+        if (formRef.current) formRef.current.reset();
         setShowSuccessToast(true);
         const timer = setTimeout(() => setShowSuccessToast(false), 5000);
         return () => clearTimeout(timer);
@@ -40,7 +42,7 @@ function GetStartedForm() {
             <section className={styles.formSection}>
                 <div className="container">
                     <div className={styles.formCard}>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} ref={formRef}>
                             <div className={styles.formRow}>
                                 <div className={styles.formGroup}><label htmlFor="gs-name">Full Name *</label><input id="gs-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
                                 <div className={styles.formGroup}><label htmlFor="gs-email">Email Address *</label><input id="gs-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
@@ -93,6 +95,11 @@ function GetStartedForm() {
                             <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
                                 {formState.submitting ? 'Submitting...' : 'Submit Your Project →'}
                             </button>
+                            {formState.submitting && <p className={styles.formStatus}>Submitting your project details...</p>}
+                            {formState.succeeded && <p className={`${styles.formStatus} ${styles.formStatusSuccess}`}>✅ Submitted successfully. We&apos;ll contact you shortly.</p>}
+                            {!formState.submitting && !formState.succeeded && Array.isArray(formState.errors) && formState.errors.length > 0 && (
+                                <p className={`${styles.formStatus} ${styles.formStatusError}`}>Could not submit right now. Please try again.</p>
+                            )}
                         </form>
                     </div>
                     <div className={styles.benefits}>

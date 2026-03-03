@@ -771,6 +771,7 @@
   transition: all .2s;
   outline: none;
   touch-action: manipulation;
+  appearance: none;
   -webkit-appearance: none;
 }
 
@@ -787,10 +788,36 @@
   min-height: 110px;
 }
 
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
+}
+
+.formGroup select option {
+  color: var(--text-primary);
+  background: var(--bg-white);
+}
+
 .formError {
   margin-top: 6px;
   font-size: 0.74rem;
   font-weight: 600;
+  color: #b84732;
+}
+
+.formStatus {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.formStatusSuccess {
+  color: #2f7d4b;
+}
+
+.formStatusError {
   color: #b84732;
 }
 

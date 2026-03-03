@@ -25,10 +25,15 @@ export default function Navbar() {
     useEffect(() => {
         if (mobileOpen) {
             document.body.style.overflow = 'hidden';
+            document.body.classList.add('mobile-menu-open');
         } else {
             document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
         }
-        return () => { document.body.style.overflow = ''; };
+        return () => {
+            document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
+        };
     }, [mobileOpen]);
 
     const closeMobile = useCallback(() => {
@@ -44,9 +49,9 @@ export default function Navbar() {
 
     const menuItems = [
         { label: 'Home', href: '/' },
-        { label: 'About', href: '/#about' },
+        { label: 'About', href: '/about' },
         {
-            label: 'Services', href: '/#services', children: [
+            label: 'Services', href: '/services', children: [
                 { label: 'AI Websites', href: '/services/ai-websites', emoji: '🌐' },
                 { label: 'AI Apps', href: '/services/ai-apps', emoji: '📱' },
                 { label: 'RAG Solutions', href: '/services/rag', emoji: '🧠' },
@@ -58,9 +63,9 @@ export default function Navbar() {
                 { label: 'Consultancy', href: '/services/consultancy', emoji: '🎯' },
             ]
         },
-        { label: 'Pricing', href: '/#pricing' },
-        { label: 'Global', href: '/#presence' },
-        { label: 'Contact', href: '/#contact' },
+        { label: 'Pricing', href: '/pricing' },
+        { label: 'Global', href: '/global' },
+        { label: 'Contact', href: '/contact' },
     ];
 
     return (

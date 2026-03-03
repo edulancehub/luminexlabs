@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 28px;
     right: 28px;
-    z-index: 9999;
+    z-index: 950;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -31,7 +31,7 @@
     position: fixed;
     bottom: 100px;
     right: 28px;
-    z-index: 9998;
+    z-index: 949;
     width: 380px;
     max-height: 520px;
     background: var(--bg-white);
@@ -51,6 +51,12 @@
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
+}
+
+:global(body.mobile-menu-open) .trigger,
+:global(body.mobile-menu-open) .panel {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .header {
@@ -160,10 +166,16 @@
     border-radius: 999px;
     border: 1.5px solid var(--border-light);
     background: var(--bg-body);
+    color: var(--text-primary);
     font-family: var(--font-sans);
     font-size: 0.85rem;
     outline: none;
     transition: border-color 0.2s;
+}
+
+.inputArea input::placeholder {
+    color: var(--text-tertiary);
+    opacity: 1;
 }
 
 .inputArea input:focus {

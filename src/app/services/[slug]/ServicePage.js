@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useForm, ValidationError } from '@formspree/react';
 import {
@@ -93,6 +93,7 @@ function getTechIcon(value) {
 }
 
 export default function ServicePage({ data, slug, related }) {
+    const formRef = useRef(null);
     const [formState, handleSubmit] = useForm('xgollwde');
     const [showSuccessToast, setShowSuccessToast] = useState(false);
 
@@ -106,6 +107,7 @@ export default function ServicePage({ data, slug, related }) {
 
     useEffect(() => {
         if (!formState.succeeded) return;
+        if (formRef.current) formRef.current.reset();
         setShowSuccessToast(true);
         const timer = setTimeout(() => setShowSuccessToast(false), 5000);
         return () => clearTimeout(timer);
@@ -176,7 +178,7 @@ export default function ServicePage({ data, slug, related }) {
                                 </div>
                                 <h3 className={styles.formTitle}>Interested?</h3>
                                 <p className={styles.formSubtitle}>Fill in your details and we&apos;ll provide a free proposal.</p>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} ref={formRef}>
                                     <input type="hidden" name="service_interest" value={data.title} />
                                     <div className={styles.formGroup}><label htmlFor="service-name">Full Name *</label><input id="service-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
                                     <div className={styles.formGroup}><label htmlFor="service-email">Email Address *</label><input id="service-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
@@ -189,6 +191,11 @@ export default function ServicePage({ data, slug, related }) {
                                     <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
                                         {formState.submitting ? 'Submitting...' : 'Get Free Proposal →'}
                                     </button>
+                                    {formState.submitting && <p className={styles.formStatus}>Submitting your request...</p>}
+                                    {formState.succeeded && <p className={`${styles.formStatus} ${styles.formStatusSuccess}`}>✅ Submitted successfully. We&apos;ll contact you soon.</p>}
+                                    {!formState.submitting && !formState.succeeded && Array.isArray(formState.errors) && formState.errors.length > 0 && (
+                                        <p className={`${styles.formStatus} ${styles.formStatusError}`}>Could not submit right now. Please try again.</p>
+                                    )}
                                 </form>
                             </div>
                         </div>
