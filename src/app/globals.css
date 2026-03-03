@@ -353,9 +353,9 @@ img {
 
 /* Reveal */
 .reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 
 .reveal.visible {

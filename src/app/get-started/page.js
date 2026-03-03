@@ -42,18 +42,18 @@ function GetStartedForm() {
                     <div className={styles.formCard}>
                         <form onSubmit={handleSubmit}>
                             <div className={styles.formRow}>
-                                <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                                <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required />
+                                <div className={styles.formGroup}><label htmlFor="gs-name">Full Name *</label><input id="gs-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
+                                <div className={styles.formGroup}><label htmlFor="gs-email">Email Address *</label><input id="gs-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
                                     <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
                                 </div>
                             </div>
                             <div className={styles.formRow}>
-                                <div className={styles.formGroup}><label>Phone Number</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
-                                <div className={styles.formGroup}><label>Company</label><input name="company" placeholder="Your company name" /></div>
+                                <div className={styles.formGroup}><label htmlFor="gs-phone">Phone Number</label><input id="gs-phone" name="phone" placeholder="+1 (555) 000-0000" autoComplete="tel" /></div>
+                                <div className={styles.formGroup}><label htmlFor="gs-company">Company</label><input id="gs-company" name="company" placeholder="Your company name" autoComplete="organization" /></div>
                             </div>
                             <div className={styles.formRow}>
-                                <div className={styles.formGroup}><label>Service *</label>
-                                    <select name="service" required defaultValue={defaultService}>
+                                <div className={styles.formGroup}><label htmlFor="gs-service">Service *</label>
+                                    <select id="gs-service" name="service" required defaultValue={defaultService}>
                                         <option value="" disabled>Choose a service...</option>
                                         <option>AI-Driven Website ($300)</option>
                                         <option>AI-Driven App ($500)</option>
@@ -67,8 +67,8 @@ function GetStartedForm() {
                                         <option>Other / Custom</option>
                                     </select>
                                 </div>
-                                <div className={styles.formGroup}><label>Budget Range</label>
-                                    <select name="budget" defaultValue="">
+                                <div className={styles.formGroup}><label htmlFor="gs-budget">Budget Range</label>
+                                    <select id="gs-budget" name="budget" defaultValue="">
                                         <option value="" disabled>Select budget...</option>
                                         <option>Under $500</option>
                                         <option>$500 — $1,000</option>
@@ -78,8 +78,8 @@ function GetStartedForm() {
                                     </select>
                                 </div>
                             </div>
-                            <div className={styles.formGroup}><label>Timeline</label>
-                                <select name="timeline" defaultValue="">
+                            <div className={styles.formGroup}><label htmlFor="gs-timeline">Timeline</label>
+                                <select id="gs-timeline" name="timeline" defaultValue="">
                                     <option value="" disabled>Preferred timeline...</option>
                                     <option>ASAP — start immediately</option>
                                     <option>Within 1-2 weeks</option>
@@ -87,7 +87,7 @@ function GetStartedForm() {
                                     <option>Flexible timeline</option>
                                 </select>
                             </div>
-                            <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Describe your project, goals, and any specific requirements..." required style={{ minHeight: 160 }} />
+                            <div className={styles.formGroup}><label htmlFor="gs-message">Project Details *</label><textarea id="gs-message" name="message" placeholder="Describe your project, goals, and any specific requirements..." autoComplete="off" required style={{ minHeight: 160 }} />
                                 <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
                             </div>
                             <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>

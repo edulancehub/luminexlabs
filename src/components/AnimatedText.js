@@ -1,5 +1,4 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
 
 /**
  * AnimatedText — letter-by-letter continuous wave animation.
@@ -13,19 +12,7 @@ import { useEffect, useRef, useState } from 'react';
  *  - style: inline style object
  */
 export default function AnimatedText({ text, tag: Tag = 'h2', className = '', stagger = 60, style = {} }) {
-    const ref = useRef(null);
-    const [visible, setVisible] = useState(false);
-
-    useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-        const obs = new IntersectionObserver(
-            ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-            { threshold: 0.15 }
-        );
-        obs.observe(el);
-        return () => obs.disconnect();
-    }, []);
+    const visible = true;
 
     // Parse text into tokens — preserve <em>, <br> tags
     const letters = [];
@@ -116,7 +103,7 @@ export default function AnimatedText({ text, tag: Tag = 'h2', className = '', st
                     60% { transform: translateY(2px); }
                 }
             `}</style>
-            <Tag ref={ref} className={className} style={style} aria-label={text.replace(/<[^>]+>/g, '')}>
+            <Tag className={className} style={style} aria-label={text.replace(/<[^>]+>/g, '')}>
                 {elements}
             </Tag>
         </>

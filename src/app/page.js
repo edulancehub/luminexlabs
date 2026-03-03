@@ -464,15 +464,15 @@ export default function Home() {
             <div className={styles.formCard}>
               <form onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
-                  <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                  <div className={styles.formGroup}><label>Email *</label><input type="email" name="email" placeholder="john@example.com" required />
+                  <div className={styles.formGroup}><label htmlFor="home-name">Full Name *</label><input id="home-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
+                  <div className={styles.formGroup}><label htmlFor="home-email">Email *</label><input id="home-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
                     <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
                   </div>
                 </div>
                 <div className={styles.formRow}>
-                  <div className={styles.formGroup}><label>Phone</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
-                  <div className={styles.formGroup}><label>Service *</label>
-                    <select name="service" required defaultValue="">
+                  <div className={styles.formGroup}><label htmlFor="home-phone">Phone</label><input id="home-phone" name="phone" placeholder="+1 (555) 000-0000" autoComplete="tel" /></div>
+                  <div className={styles.formGroup}><label htmlFor="home-service">Service *</label>
+                    <select id="home-service" name="service" required defaultValue="">
                       <option value="" disabled>Choose a service...</option>
                       <option>AI-Driven Website ($300)</option>
                       <option>AI-Driven App ($500)</option>
@@ -486,7 +486,7 @@ export default function Home() {
                     </select>
                   </div>
                 </div>
-                <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required />
+                <div className={styles.formGroup}><label htmlFor="home-message">Project Details *</label><textarea id="home-message" name="message" placeholder="Tell us about your project..." autoComplete="off" required />
                   <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
                 </div>
                 <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
