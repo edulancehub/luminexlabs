@@ -1,0 +1,15 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="28" fill="#f1eef8"/>
+  <rect x="28" y="290" width="584" height="96" rx="16" fill="#ddd5ed"/>
+  <rect x="95" y="105" width="170" height="185" rx="14" fill="#fff" stroke="#d1c6e8" stroke-width="4"/>
+  <rect x="290" y="85" width="120" height="205" rx="14" fill="#fdfbff" stroke="#d1c6e8" stroke-width="4"/>
+  <rect x="430" y="125" width="120" height="165" rx="14" fill="#fff" stroke="#d1c6e8" stroke-width="4"/>
+  <path d="M355 52L372 85H338L355 52Z" fill="#b9a6df"/>
+  <circle cx="150" cy="160" r="16" fill="#e9e3f6"/>
+  <circle cx="210" cy="160" r="16" fill="#e9e3f6"/>
+  <circle cx="150" cy="215" r="16" fill="#e9e3f6"/>
+  <circle cx="210" cy="215" r="16" fill="#e9e3f6"/>
+  <rect x="462" y="156" width="26" height="104" rx="8" fill="#e5dcf4"/>
+  <rect x="502" y="156" width="26" height="104" rx="8" fill="#e5dcf4"/>
+  <text x="46" y="60" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#302644">United Kingdom Virtual Office</text>
+</svg>

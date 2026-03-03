@@ -6,6 +6,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodleArrowCurve, DoodlePlus, DoodleDots, DoodleCircle, DoodleSunBurst, DoodleZigzag, DoodleWave } from '@/components/Doodles';
 import AnimatedText from '@/components/AnimatedText';
 import TechShowcase from '@/components/TechShowcase';
+import HeroIllustration from '@/components/HeroIllustration';
 import {
   SiOpenai,
   SiAnthropic,
@@ -142,13 +143,18 @@ export default function Home() {
           <Link href="/services/cyber-security" className={styles.pill}><span>🔒</span><div><strong>Cyber Security</strong><small>Protection that scales.</small></div></Link>
         </div>
 
-        <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>✨ AI-Powered Software Agency</div>
-          <AnimatedText text="Your trusted <em>AI-driven</em><br>software partner" tag="h1" className={styles.heroTitle} stagger={35} />
-          <p className={styles.heroSubtitle}>We build intelligent software — AI-powered websites, smart apps, RAG pipelines, and automation systems that make the most impact.</p>
-          <div className={styles.heroCta}>
-            <Link href="/get-started" className="btn btn-accent">Get Started 🚀</Link>
-            <Link href="/services/ai-websites" className="btn btn-secondary">Our Services</Link>
+        <div className={styles.heroSplit}>
+          <div className={styles.heroContent}>
+            <div className={styles.heroBadge}>✨ AI-Powered Software Agency</div>
+            <AnimatedText text="Your trusted <em>AI-driven</em><br>software partner" tag="h1" className={styles.heroTitle} stagger={35} />
+            <p className={styles.heroSubtitle}>We build intelligent software — AI-powered websites, smart apps, RAG pipelines, and automation systems that make the most impact.</p>
+            <div className={styles.heroCta}>
+              <Link href="/get-started" className="btn btn-accent">Get Started 🚀</Link>
+              <Link href="/services/ai-websites" className="btn btn-secondary">Our Services</Link>
+            </div>
+          </div>
+          <div className={styles.heroIllustration}>
+            <HeroIllustration style={{ width: '100%', maxWidth: 480, height: 'auto' }} />
           </div>
         </div>
 
@@ -404,21 +410,30 @@ export default function Home() {
       <section className="section section-white" id="presence">
         <div className="container">
           <div className="text-center reveal">
-            <span className="section-eyebrow"><span className="dot" /> Global</span>
+            <span className="section-eyebrow"><span className="dot" /> Virtual Offices</span>
             <AnimatedText text="We operate globally" className="section-heading" stagger={35} />
-            <p className="section-desc mx-auto">Four strategic locations ensuring round-the-clock availability.</p>
+            <p className="section-desc mx-auto">Four strategic virtual offices ensuring round-the-clock availability across every timezone.</p>
           </div>
           <div className={styles.presenceGrid}>
             {[
-              { flag: '🇸🇦', name: 'Saudi Arabia', label: 'Middle East Ops' },
-              { flag: '🇺🇸', name: 'United States', label: 'North America Ops' },
-              { flag: '🇬🇧', name: 'United Kingdom', label: 'Europe Ops' },
-              { flag: '🇧🇩', name: 'Dhaka', label: 'South Asia Ops' }
+              { name: 'Saudi Arabia', label: 'Middle East Virtual Office', shift: 'UTC+3 · Arabic & English Support', image: '/office-sa.svg' },
+              { name: 'United States', label: 'North America Virtual Office', shift: 'UTC-5 · EST & PST Coverage', image: '/office-us.svg' },
+              { name: 'United Kingdom', label: 'Europe Virtual Office', shift: 'UTC+0 · EMEA Coordination Hub', image: '/office-uk.svg' },
+              { name: 'Dhaka', label: 'South Asia Virtual Office', shift: 'UTC+6 · Engineering Delivery Center', image: '/office-bd.svg' }
             ].map(c => (
               <div key={c.name} className={`${styles.presenceCard} reveal`}>
-                <div className={styles.presenceFlag}>{c.flag}</div>
+                <div className={styles.presenceOfficeWrap}>
+                  <Image
+                    src={c.image}
+                    alt={`${c.name} virtual office`}
+                    width={640}
+                    height={420}
+                    className={styles.presenceOfficeImg}
+                  />
+                </div>
                 <h3>{c.name}</h3>
                 <p>{c.label}</p>
+                <span className={styles.presenceShift}>{c.shift}</span>
               </div>
             ))}
           </div>

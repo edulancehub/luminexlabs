@@ -1,0 +1,21 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="420" rx="28" fill="#eef3f9"/>
+  <rect x="20" y="300" width="600" height="90" rx="18" fill="#dce6f1"/>
+  <rect x="95" y="120" width="140" height="180" rx="12" fill="#ffffff" stroke="#c7d5e8" stroke-width="4"/>
+  <rect x="255" y="90" width="140" height="210" rx="12" fill="#f8fbff" stroke="#c7d5e8" stroke-width="4"/>
+  <rect x="415" y="145" width="130" height="155" rx="12" fill="#ffffff" stroke="#c7d5e8" stroke-width="4"/>
+  <g fill="#e5edf7">
+    <rect x="120" y="150" width="36" height="32" rx="5"/>
+    <rect x="170" y="150" width="36" height="32" rx="5"/>
+    <rect x="120" y="198" width="36" height="32" rx="5"/>
+    <rect x="170" y="198" width="36" height="32" rx="5"/>
+    <rect x="280" y="125" width="32" height="35" rx="5"/>
+    <rect x="330" y="125" width="32" height="35" rx="5"/>
+    <rect x="280" y="175" width="32" height="35" rx="5"/>
+    <rect x="330" y="175" width="32" height="35" rx="5"/>
+    <rect x="442" y="176" width="30" height="30" rx="5"/>
+    <rect x="488" y="176" width="30" height="30" rx="5"/>
+  </g>
+  <circle cx="545" cy="70" r="22" fill="#7ca5d3" opacity="0.8"/>
+  <text x="46" y="60" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#23364b">United States Virtual Office</text>
+</svg>
