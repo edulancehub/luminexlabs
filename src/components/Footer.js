@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -10,10 +12,10 @@ export default function Footer() {
                         <Link href="/" className={styles.logo}><div className={styles.logoMark}>L</div> LuminexLabs</Link>
                         <p>Building the future with AI-driven solutions. Ideas into scalable, intelligent products.</p>
                         <div className={styles.socials}>
-                            <a href="https://www.linkedin.com/company/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-                            <a href="https://x.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">𝕏</a>
-                            <a href="https://github.com/edulancehub" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
-                            <a href="https://www.instagram.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+                            <a href="https://www.facebook.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+                            <a href="https://www.linkedin.com/company/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                            <a href="https://x.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><FaXTwitter /></a>
+                            <a href="https://www.instagram.com/luminexlabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
                         </div>
                     </div>
                     <div className={styles.col}>

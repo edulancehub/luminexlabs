@@ -44,28 +44,47 @@ export default function AnimatedText({ text, tag: Tag = 'h2', className = '', st
 
     const totalChars = charIndex;
 
-    // Build JSX
+    // Build JSX with word wrappers so mobile wraps by words, not by letters.
     const elements = [];
     let emphasis = false;
     let key = 0;
+    let wordNodes = [];
+
+    const flushWord = () => {
+        if (!wordNodes.length) return;
+        elements.push(
+            <span key={`w-${key++}`} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                {wordNodes}
+            </span>
+        );
+        wordNodes = [];
+    };
 
     for (const item of letters) {
         if (item.type === 'tag') {
             if (item.content === '<em>') emphasis = true;
             else if (item.content === '</em>') emphasis = false;
-            else if (item.content === '<br>' || item.content === '<br/>') elements.push(<br key={`br-${key++}`} />);
+            else if (item.content === '<br>' || item.content === '<br/>') {
+                flushWord();
+                elements.push(<br key={`br-${key++}`} />);
+            }
             continue;
         }
-        if (item.type === 'break') { elements.push(<br key={`br-${key++}`} />); continue; }
+
+        if (item.type === 'break') {
+            flushWord();
+            elements.push(<br key={`br-${key++}`} />);
+            continue;
+        }
+
         if (item.type === 'space') {
-            elements.push(<span key={`s-${key++}`} style={{ display: 'inline-block', width: '0.3em' }}>&nbsp;</span>);
+            flushWord();
+            elements.push(<span key={`s-${key++}`}> </span>);
             continue;
         }
 
-        // Each letter gets a continuous subtle wave animation
         const delay = item.index * stagger;
-        const totalDuration = totalChars * stagger + 2000; // full cycle duration
-
+        const totalDuration = totalChars * stagger + 2000;
         const baseStyle = {
             display: 'inline-block',
             opacity: visible ? 1 : 0,
@@ -76,15 +95,17 @@ export default function AnimatedText({ text, tag: Tag = 'h2', className = '', st
         };
 
         if (emphasis) {
-            elements.push(
+            wordNodes.push(
                 <em key={`c-${key++}`} style={{ ...baseStyle, fontStyle: 'italic', background: 'linear-gradient(135deg, var(--text-secondary), var(--accent))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                     {item.content}
                 </em>
             );
         } else {
-            elements.push(<span key={`c-${key++}`} style={baseStyle}>{item.content}</span>);
+            wordNodes.push(<span key={`c-${key++}`} style={baseStyle}>{item.content}</span>);
         }
     }
+
+    flushWord();
 
     return (
         <>

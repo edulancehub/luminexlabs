@@ -1220,6 +1220,20 @@
 
   .heroContent {
     padding: 0 4px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .heroSplit {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 420px;
+  }
+
+  .heroIllustration {
+    max-width: 320px;
+    margin: 0 auto;
+    order: 2;
   }
 
   .heroTitle {
@@ -1231,6 +1245,8 @@
     font-size: 0.92rem;
     margin-bottom: 28px;
     line-height: 1.65;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .heroCta {
@@ -1239,6 +1255,9 @@
     align-items: stretch;
     width: 100%;
     max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
   }
 
   .heroCta .btn {
@@ -1538,6 +1557,14 @@
 @media (max-width: 380px) {
   .hero {
     padding: 90px 16px 32px;
+  }
+
+  .heroSplit {
+    gap: 14px;
+  }
+
+  .heroIllustration {
+    max-width: 280px;
   }
 
   .heroTitle {
