@@ -2,6 +2,18 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './Chatbot.module.css';
 
+/** Convert /path-style links in text to clickable <a> elements */
+function renderMessageText(text) {
+    // Match paths like /get-started, /services/rag etc.
+    const parts = text.split(/(\/[a-z][a-z0-9\-\/]*)/gi);
+    return parts.map((part, i) => {
+        if (/^\/[a-z][a-z0-9\-\/]*$/i.test(part)) {
+            return <a key={i} href={part} style={{ color: 'var(--accent, #e8734a)', textDecoration: 'underline', fontWeight: 600 }}>{part}</a>;
+        }
+        return part;
+    });
+}
+
 export default function Chatbot() {
     const [open, setOpen] = useState(false);
     const [messages, setMessages] = useState([
@@ -51,7 +63,7 @@ export default function Chatbot() {
                 </div>
                 <div className={styles.messages} ref={messagesRef}>
                     {messages.map((m, i) => (
-                        <div key={i} className={`${styles.msg} ${m.role === 'user' ? styles.user : styles.bot}`}>{m.text}</div>
+                        <div key={i} className={`${styles.msg} ${m.role === 'user' ? styles.user : styles.bot}`}>{m.role === 'bot' ? renderMessageText(m.text) : m.text}</div>
                     ))}
                     {loading && (
                         <div className={`${styles.msg} ${styles.bot} ${styles.typing}`}>

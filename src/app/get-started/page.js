@@ -2,6 +2,8 @@
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodlePlus, DoodleWave } from '@/components/Doodles';
+import AnimatedText from '@/components/AnimatedText';
 import styles from './page.module.css';
 
 function GetStartedForm() {
@@ -26,8 +28,12 @@ function GetStartedForm() {
             <section className={styles.hero}>
                 <div className="bg-character" style={{ top: '10%', left: '5%', fontSize: '200px' }}>🚀</div>
                 <div className="bg-character" style={{ bottom: '15%', right: '3%', fontSize: '200px' }}>💡</div>
+                <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '15%', right: '12%', color: 'var(--accent)', opacity: 0.45 }} />
+                <DoodleStar className={styles.doodle} style={{ position: 'absolute', bottom: '22%', left: '10%', color: 'var(--warm-lavender)', opacity: 0.35 }} />
+                <DoodleSquiggle className={styles.doodle} style={{ position: 'absolute', bottom: '35%', right: '6%', color: 'var(--accent)', opacity: 0.25 }} />
+                <DoodlePlus className={styles.doodle} style={{ position: 'absolute', top: '28%', left: '6%', color: 'var(--warm-peach)', opacity: 0.3 }} />
                 <span className="section-eyebrow"><span className="dot" /> Get Started</span>
-                <h1 className="section-heading" style={{ maxWidth: 600 }}>Let&apos;s bring your<br />idea to life</h1>
+                <AnimatedText text="Let's bring your<br>idea to life" tag="h1" className="section-heading" style={{ maxWidth: 600 }} stagger={35} />
                 <p className="section-desc mx-auto">Tell us about your project. We&apos;ll craft a tailored proposal and get back within 24 hours.</p>
             </section>
 

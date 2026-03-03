@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useForm, ValidationError } from '@formspree/react';
+import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodleArrowCurve, DoodlePlus, DoodleDots, DoodleCircle, DoodleSunBurst, DoodleZigzag, DoodleWave } from '@/components/Doodles';
+import AnimatedText from '@/components/AnimatedText';
+import TechShowcase from '@/components/TechShowcase';
 import {
   SiOpenai,
   SiAnthropic,
@@ -125,6 +128,14 @@ export default function Home() {
         <div className="bg-character" style={{ top: '25%', right: '-2%', transform: 'rotate(8deg)' }}>🤖</div>
         <div className="bg-character" style={{ bottom: '12%', left: '6%', transform: 'rotate(5deg)' }}>🌐</div>
 
+        {/* Decorative doodles */}
+        <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '14%', right: '12%', color: 'var(--accent)', opacity: 0.5, animation: 'float 5s ease-in-out infinite' }} />
+        <DoodleStar className={styles.doodle} style={{ position: 'absolute', top: '22%', left: '8%', color: 'var(--warm-lavender)', opacity: 0.4, animation: 'float 6s ease-in-out infinite reverse' }} />
+        <DoodleSquiggle className={styles.doodle} style={{ position: 'absolute', bottom: '28%', right: '6%', color: 'var(--accent)', opacity: 0.3 }} />
+        <DoodleDots className={styles.doodle} style={{ position: 'absolute', bottom: '18%', left: '4%', color: 'var(--text-tertiary)', opacity: 0.25 }} />
+        <DoodlePlus className={styles.doodle} style={{ position: 'absolute', top: '36%', right: '4%', color: 'var(--warm-peach)', opacity: 0.4 }} />
+        <DoodleSunBurst className={styles.doodle} style={{ position: 'absolute', top: '8%', left: '15%', color: 'var(--accent)', opacity: 0.25 }} />
+
         <div className={styles.pills}>
           <Link href="/services/ai-websites" className={styles.pill}><span>🤖</span><div><strong>AI Solutions</strong><small>Intelligence that delivers.</small></div></Link>
           <Link href="/services/ai-apps" className={styles.pill}><span>📱</span><div><strong>Web & Apps</strong><small>Platforms that perform.</small></div></Link>
@@ -133,11 +144,11 @@ export default function Home() {
 
         <div className={styles.heroContent}>
           <div className={styles.heroBadge}>✨ AI-Powered Software Agency</div>
-          <h1 className={styles.heroTitle}>Your trusted <em>AI-driven</em><br />software partner</h1>
+          <AnimatedText text="Your trusted <em>AI-driven</em><br>software partner" tag="h1" className={styles.heroTitle} stagger={35} />
           <p className={styles.heroSubtitle}>We build intelligent software — AI-powered websites, smart apps, RAG pipelines, and automation systems that make the most impact.</p>
           <div className={styles.heroCta}>
             <Link href="/get-started" className="btn btn-accent">Get Started 🚀</Link>
-            <Link href="/#services" className="btn btn-secondary">Our Services</Link>
+            <Link href="/services/ai-websites" className="btn btn-secondary">Our Services</Link>
           </div>
         </div>
 
@@ -181,7 +192,7 @@ export default function Home() {
             </div>
             <div className="reveal reveal-delay-2">
               <span className="section-eyebrow"><span className="dot" /> Who we are</span>
-              <h2 className="section-heading">We are a human-first creative studio</h2>
+              <AnimatedText text="We are a human-first creative studio" className="section-heading" stagger={25} />
               <p className="section-desc">We believe in purposeful design to solve real business challenges. Every line of code, every model, and every interaction is crafted with intent.</p>
               <p className={styles.aboutSecondary}>For us, AI isn't just technology — it's a strategic tool that helps real people achieve lasting success.</p>
               <Link href="/get-started" className="btn btn-accent">Start a project →</Link>
@@ -194,10 +205,13 @@ export default function Home() {
       <section className="section section-white" id="services">
         <div className="container">
           <div className="bg-character" style={{ top: '8%', left: '-5%' }}>⚙️</div>
+          <DoodleArrowCurve className={styles.doodle} style={{ position: 'absolute', top: '6%', right: '8%', color: 'var(--accent)', opacity: 0.3 }} />
+          <DoodleCircle className={styles.doodle} style={{ position: 'absolute', bottom: '12%', left: '3%', color: 'var(--warm-lavender)', opacity: 0.25 }} />
+          <DoodleZigzag className={styles.doodle} style={{ position: 'absolute', bottom: '8%', right: '5%', color: 'var(--accent)', opacity: 0.2 }} />
           <div className={styles.servicesHeader + ' reveal'}>
             <div>
               <span className="section-eyebrow"><span className="dot" /> Services</span>
-              <h2 className="section-heading">What we do</h2>
+              <AnimatedText text="What we do" className="section-heading" stagger={40} />
             </div>
             <p className="section-desc">From concept to deployment, end-to-end solutions designed around real people.</p>
           </div>
@@ -232,7 +246,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center reveal">
             <span className="section-eyebrow"><span className="dot" /> Expertise</span>
-            <h2 className="section-heading">Industries we dominate</h2>
+            <AnimatedText text="Industries we dominate" className="section-heading" stagger={30} />
             <p className="section-desc mx-auto">Deep domain expertise across eight critical industries, powered by AI.</p>
           </div>
           <div className={styles.radarWrapper + ' reveal'}>
@@ -334,7 +348,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center reveal">
             <span className="section-eyebrow"><span className="dot" /> Technology</span>
-            <h2 className="section-heading">Our tech stack</h2>
+            <AnimatedText text="Our tech stack" className="section-heading" stagger={40} />
             <p className="section-desc mx-auto">Real tools. Real engineering. Real outcomes — powered by world-class platforms.</p>
           </div>
           <div className={styles.techMeta + ' reveal'}>
@@ -342,14 +356,7 @@ export default function Home() {
             <div><strong>8</strong><span>Product Categories</span></div>
             <div><strong>24/7</strong><span>Production Monitoring</span></div>
           </div>
-          <div className={styles.techLogoGrid + ' reveal'}>
-            {techLogos.map(({ name, icon: Icon, color }) => (
-              <div key={name} className={styles.techLogoCard}>
-                <Icon className={styles.techLogoIcon} style={{ color }} aria-hidden="true" />
-                <span>{name}</span>
-              </div>
-            ))}
-          </div>
+          <TechShowcase logos={techLogos} interval={3500} />
         </div>
       </section>
 
@@ -358,7 +365,7 @@ export default function Home() {
         <div className="container">
           <div className={styles.pricingHeader + ' reveal'}>
             <span className="section-eyebrow"><span className="dot" /> Pricing</span>
-            <h2 className="section-heading">Simple, transparent pricing</h2>
+            <AnimatedText text="Simple, transparent pricing" className="section-heading" stagger={28} />
             <p className="section-desc mx-auto">No hidden fees. One-time payment for handcrafted AI-driven products.</p>
           </div>
           <div className={styles.pricingGrid}>
@@ -398,7 +405,7 @@ export default function Home() {
         <div className="container">
           <div className="text-center reveal">
             <span className="section-eyebrow"><span className="dot" /> Global</span>
-            <h2 className="section-heading">We operate globally</h2>
+            <AnimatedText text="We operate globally" className="section-heading" stagger={35} />
             <p className="section-desc mx-auto">Four strategic locations ensuring round-the-clock availability.</p>
           </div>
           <div className={styles.presenceGrid}>
@@ -421,9 +428,12 @@ export default function Home() {
       {/* CONTACT */}
       <section className="section section-cream" id="contact">
         <div className="container">
+          <DoodleWave className={styles.doodle} style={{ position: 'absolute', top: '10%', right: '6%', color: 'var(--accent)', opacity: 0.2 }} />
+          <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', bottom: '15%', left: '5%', color: 'var(--warm-lavender)', opacity: 0.3 }} />
+          <DoodlePlus className={styles.doodle} style={{ position: 'absolute', top: '18%', left: '8%', color: 'var(--accent)', opacity: 0.2 }} />
           <div className="text-center reveal" style={{ marginBottom: '56px' }}>
             <span className="section-eyebrow"><span className="dot" /> Contact</span>
-            <h2 className="section-heading">Ready to get started?</h2>
+            <AnimatedText text="Ready to get started?" className="section-heading" stagger={30} />
             <p className="section-desc mx-auto">Tell us about your project and we'll get back within 24 hours.</p>
           </div>
           <div className={styles.contactWrapper}>

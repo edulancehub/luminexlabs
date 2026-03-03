@@ -33,6 +33,8 @@ import {
     FaGlobe
 } from 'react-icons/fa';
 import styles from './page.module.css';
+import { DoodleSparkle, DoodleStar, DoodleSquiggle, DoodleArrowCurve, DoodlePlus, DoodleDots, DoodleSunBurst } from '@/components/Doodles';
+import AnimatedText from '@/components/AnimatedText';
 
 const techIconMap = {
     react: SiReact,
@@ -119,15 +121,22 @@ export default function ServicePage({ data, slug, related }) {
             <section className={styles.hero}>
                 <div className="bg-character" style={{ top: '8%', left: '2%', fontSize: '220px' }}>{bgChars[0]}</div>
                 <div className="bg-character" style={{ bottom: '10%', right: '3%', fontSize: '220px' }}>{bgChars[1]}</div>
+                <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '12%', right: '10%', color: 'var(--accent)', opacity: 0.45 }} />
+                <DoodleStar className={styles.doodle} style={{ position: 'absolute', bottom: '20%', left: '8%', color: 'var(--warm-lavender)', opacity: 0.35 }} />
+                <DoodleSquiggle className={styles.doodle} style={{ position: 'absolute', bottom: '32%', right: '5%', color: 'var(--accent)', opacity: 0.25 }} />
+                <DoodlePlus className={styles.doodle} style={{ position: 'absolute', top: '30%', left: '4%', color: 'var(--warm-peach)', opacity: 0.3 }} />
                 <div className={styles.icon}>{data.icon}</div>
                 <span className="section-eyebrow"><span className="dot" /> {data.eyebrow}</span>
-                <h1 className="section-heading">{data.title}</h1>
+                <AnimatedText text={data.title} tag="h1" className="section-heading" stagger={35} />
                 <p className="section-desc mx-auto">{data.subtitle}</p>
             </section>
 
             {/* Body */}
             <section className={styles.body}>
                 <div className="container">
+                    <DoodleArrowCurve className={styles.doodle} style={{ position: 'absolute', top: '4%', right: '2%', color: 'var(--accent)', opacity: 0.2 }} />
+                    <DoodleDots className={styles.doodle} style={{ position: 'absolute', bottom: '6%', left: '1%', color: 'var(--text-tertiary)', opacity: 0.18 }} />
+                    <DoodleSunBurst className={styles.doodle} style={{ position: 'absolute', top: '60%', right: '1%', color: 'var(--warm-lavender)', opacity: 0.2 }} />
                     <div className={styles.content}>
                         <div className="reveal">
                             <h2 className={styles.aboutTitle}>{data.aboutTitle}</h2>
@@ -159,18 +168,22 @@ export default function ServicePage({ data, slug, related }) {
                             </div>
                         </div>
 
-                        <div className={styles.sidebar + ' reveal reveal-delay-2'}>
+                        <div className={styles.sidebar}>
                             <div className={styles.formCard}>
+                                <div className={styles.formBadgeRow}>
+                                    <span className={styles.formBadge}>{data.icon} {data.title}</span>
+                                    <span className={styles.formBadgeMuted}>Free Strategy Call</span>
+                                </div>
                                 <h3 className={styles.formTitle}>Interested?</h3>
                                 <p className={styles.formSubtitle}>Fill in your details and we&apos;ll provide a free proposal.</p>
                                 <form onSubmit={handleSubmit}>
                                     <input type="hidden" name="service_interest" value={data.title} />
-                                    <div className={styles.formGroup}><label>Full Name *</label><input name="name" placeholder="John Doe" required /></div>
-                                    <div className={styles.formGroup}><label>Email Address *</label><input type="email" name="email" placeholder="john@example.com" required />
+                                    <div className={styles.formGroup}><label htmlFor="service-name">Full Name *</label><input id="service-name" name="name" placeholder="John Doe" autoComplete="name" required /></div>
+                                    <div className={styles.formGroup}><label htmlFor="service-email">Email Address *</label><input id="service-email" type="email" name="email" placeholder="john@example.com" autoComplete="email" required />
                                         <ValidationError prefix="Email" field="email" errors={formState.errors} className={styles.formError} />
                                     </div>
-                                    <div className={styles.formGroup}><label>Phone</label><input name="phone" placeholder="+1 (555) 000-0000" /></div>
-                                    <div className={styles.formGroup}><label>Project Details *</label><textarea name="message" placeholder="Tell us about your project..." required />
+                                    <div className={styles.formGroup}><label htmlFor="service-phone">Phone</label><input id="service-phone" name="phone" placeholder="+1 (555) 000-0000" autoComplete="tel" /></div>
+                                    <div className={styles.formGroup}><label htmlFor="service-message">Project Details *</label><textarea id="service-message" name="message" placeholder="Tell us about your project..." required />
                                         <ValidationError prefix="Message" field="message" errors={formState.errors} className={styles.formError} />
                                     </div>
                                     <button type="submit" disabled={formState.submitting} className="btn btn-accent" style={{ width: '100%', justifyContent: 'center' }}>
@@ -188,7 +201,7 @@ export default function ServicePage({ data, slug, related }) {
                 <div className="container">
                     <div className="text-center reveal">
                         <span className="section-eyebrow"><span className="dot" /> More Services</span>
-                        <h2 className="section-heading">You might also like</h2>
+                        <AnimatedText text="You might also like" className="section-heading" stagger={30} />
                     </div>
                     <div className={styles.relatedGrid}>
                         {(related || []).map(s => (

@@ -368,6 +368,7 @@ export default function Scene3D() {
                 dpr={[1, 1.5]}
                 gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
                 frameloop="always"
+                style={{ pointerEvents: 'none' }}
             >
                 <SceneContent scroll={scroll} />
             </Canvas>

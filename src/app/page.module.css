@@ -13,6 +13,13 @@
   will-change: transform;
 }
 
+.doodle {
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
 /* Animated gradient orbs behind hero */
 .hero::before,
 .hero::after {
@@ -676,6 +683,20 @@
   transition: box-shadow 0.4s;
   position: relative;
   z-index: 2;
+  isolation: isolate;
+}
+
+.formCard form {
+  position: relative;
+  z-index: 1;
+}
+
+.formCard input,
+.formCard select,
+.formCard textarea {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .formCard:hover {
@@ -1129,6 +1150,10 @@
 }
 
 @media (max-width: 768px) {
+  .doodle {
+    display: none;
+  }
+
   .hero {
     padding: 100px 20px 40px;
     min-height: auto;
