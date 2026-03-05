@@ -82,18 +82,8 @@ const techLogos = [
 export default function Home() {
   const pathname = usePathname();
   const contactFormRef = useRef(null);
-  const zipTimerRef = useRef(null);
   const [formState, handleSubmit] = useForm('xgollwde');
   const [showSuccessToast, setShowSuccessToast] = useState(false);
-  const [isFutureLook, setIsFutureLook] = useState(false);
-  const [isZipping, setIsZipping] = useState(false);
-
-  useEffect(() => {
-    const savedLook = window.localStorage.getItem('home-look-mode');
-    if (savedLook === 'future') {
-      setIsFutureLook(true);
-    }
-  }, []);
 
   useEffect(() => {
     // Scroll reveal
@@ -154,34 +144,8 @@ export default function Home() {
     return () => cancelAnimationFrame(raf);
   }, [pathname]);
 
-  useEffect(() => {
-    return () => {
-      if (zipTimerRef.current) {
-        clearTimeout(zipTimerRef.current);
-      }
-    };
-  }, []);
-
-  const handleLookSwitch = () => {
-    if (zipTimerRef.current) {
-      clearTimeout(zipTimerRef.current);
-    }
-
-    setIsZipping(true);
-    setIsFutureLook(prev => {
-      const next = !prev;
-      window.localStorage.setItem('home-look-mode', next ? 'future' : 'classic');
-      return next;
-    });
-
-    zipTimerRef.current = setTimeout(() => {
-      setIsZipping(false);
-    }, 680);
-  };
-
   return (
-    <div className={`${styles.pageShell} ${isFutureLook ? styles.futureLook : ''} ${isZipping ? styles.isZipping : ''}`}>
-      <div className={styles.zipFlash} aria-hidden="true" />
+    <>
       {/* HERO */}
       <section className={styles.hero}>
         <div className="bg-character" style={{ top: '25%', right: '-2%', transform: 'rotate(8deg)' }}>🤖</div>
@@ -209,14 +173,6 @@ export default function Home() {
             <div className={styles.heroCta}>
               <Link href="/get-started" className="btn btn-accent">Get Started 🚀</Link>
               <Link href="/services/ai-websites" className="btn btn-secondary">Our Services</Link>
-              <button
-                type="button"
-                className={styles.designSwitchBtn}
-                onClick={handleLookSwitch}
-                aria-pressed={isFutureLook}
-              >
-                {isFutureLook ? 'Back to Recent Look' : 'Switch to New Look'}
-              </button>
             </div>
           </div>
           <div className={styles.heroIllustration}>
@@ -574,6 +530,6 @@ export default function Home() {
           ✅ Message submitted successfully. We&apos;ll get back to you within 24 hours.
         </div>
       )}
-    </div>
+    </>
   );
 }

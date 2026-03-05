@@ -9,9 +9,9 @@
 }
 
 .navbar.scrolled {
-    background: rgba(250, 248, 245, 0.92);
+    background: rgba(13, 13, 13, 0.88);
     backdrop-filter: blur(24px) saturate(180%);
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     padding: 10px 0;
 }
 
@@ -79,8 +79,8 @@
 }
 
 .menuLink:hover {
-    color: var(--text-primary);
-    background: rgba(0, 0, 0, 0.03);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .arrow {
@@ -116,10 +116,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--bg-white);
+    background: #1a1a1a;
     border-radius: 16px;
-    border: 1px solid var(--border-light);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .dropdownItem {
@@ -138,8 +138,8 @@
 }
 
 .dropdownItem:hover {
-    color: var(--text-primary);
-    background: var(--bg-cream);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .dropdownEmoji {
@@ -161,8 +161,8 @@
     gap: 8px;
     padding: 11px 26px;
     border-radius: 999px;
-    background: var(--bg-dark);
-    color: var(--text-white);
+    background: #f0f0f0;
+    color: #0d0d0d;
     font-size: 0.84rem;
     font-weight: 600;
     font-family: var(--font-sans);
@@ -266,15 +266,15 @@
         right: 0;
         width: min(85vw, 320px);
         height: 100dvh;
-        background: var(--bg-white);
+        background: #141414;
         flex-direction: column;
         justify-content: center;
         align-items: stretch;
         padding: 80px 28px 40px;
         gap: 4px;
         transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-        border-left: 1px solid var(--border-light);
-        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
         transform: translateX(100%);
         z-index: 1000;
         overflow-y: auto;
@@ -293,7 +293,7 @@
     }
 
     .menuLink:active {
-        background: var(--bg-cream);
+        background: rgba(255, 255, 255, 0.08);
     }
 
     .dropdown {
@@ -314,7 +314,7 @@
     }
 
     .dropdownItem:active {
-        background: var(--bg-cream);
+        background: rgba(255, 255, 255, 0.08);
     }
 
     .mobileCta {

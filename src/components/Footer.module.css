@@ -43,7 +43,7 @@
     width: 36px;
     height: 36px;
     border-radius: 10px;
-    background: var(--bg-dark);
+    background: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
