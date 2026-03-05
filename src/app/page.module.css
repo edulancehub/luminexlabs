@@ -1,3 +1,131 @@
+/* === Dynamic Look Switch === */
+.pageShell {
+  position: relative;
+  background: var(--bg-body);
+  transition: background 0.55s var(--ease-out), color 0.45s var(--ease-out);
+}
+
+.zipFlash {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0;
+  background:
+    linear-gradient(105deg,
+      rgba(255, 255, 255, 0) 12%,
+      rgba(255, 255, 255, 0.92) 40%,
+      rgba(13, 140, 207, 0.5) 54%,
+      rgba(255, 255, 255, 0.92) 68%,
+      rgba(255, 255, 255, 0) 92%);
+}
+
+.isZipping .zipFlash {
+  animation: zipFlash 680ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.designSwitchBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 28px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--text-primary);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all var(--duration-medium) var(--ease-out);
+}
+
+.designSwitchBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(13, 140, 207, 0.2);
+}
+
+/* Alternate visual mode: keeps content, updates atmosphere and styling */
+.futureLook {
+  --bg-body: #edf7ff;
+  --bg-white: #ffffff;
+  --bg-cream: #e2f2ff;
+  --bg-warm: #d4ebff;
+  --border-light: #c8dded;
+  --border-medium: #a7c5d9;
+  --text-primary: #0f2f45;
+  --text-secondary: #2f5c79;
+  --text-tertiary: #5e86a0;
+  --accent: #0d8ccf;
+  --accent-hover: #0a79b2;
+  --warm-peach: #8cd7ff;
+  --warm-rose: #90bce2;
+  --warm-lavender: #8db2ff;
+}
+
+.futureLook .hero {
+  background:
+    radial-gradient(circle at 80% 12%, rgba(141, 178, 255, 0.34) 0%, transparent 48%),
+    radial-gradient(circle at 16% 88%, rgba(140, 215, 255, 0.3) 0%, transparent 42%),
+    linear-gradient(130deg, #031522 0%, #08324a 52%, #0b5376 100%);
+}
+
+.futureLook .hero::before,
+.futureLook .hero::after {
+  opacity: 0.26;
+}
+
+.futureLook .heroTitle,
+.futureLook .heroSubtitle,
+.futureLook .heroBadge,
+.futureLook .statNumber,
+.futureLook .statLabel {
+  color: #eef8ff;
+}
+
+.futureLook .heroTitle em {
+  background: linear-gradient(120deg, #9ce9ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.futureLook .pill {
+  background: rgba(5, 27, 42, 0.46);
+  border-color: rgba(156, 233, 255, 0.22);
+}
+
+.futureLook .pill strong,
+.futureLook .pill small {
+  color: #deeffb;
+}
+
+.futureLook .stats .stat {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes zipFlash {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.9;
+    transform: translateX(8%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(110%);
+  }
+}
+
 /* === Hero === */
 .hero {
   min-height: 100vh;
@@ -1293,6 +1421,12 @@
     text-align: center;
     padding: 16px 24px;
     font-size: 0.92rem;
+  }
+
+  .designSwitchBtn {
+    width: 100%;
+    min-height: 52px;
+    justify-content: center;
   }
 
   .stats {
