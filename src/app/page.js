@@ -148,9 +148,6 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className={styles.hero}>
-        <div className="bg-character" style={{ top: '25%', right: '-2%', transform: 'rotate(8deg)' }}>🤖</div>
-        <div className="bg-character" style={{ bottom: '12%', left: '6%', transform: 'rotate(5deg)' }}>🌐</div>
-
         {/* Decorative doodles */}
         <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '14%', right: '12%', color: 'var(--accent)', opacity: 0.5, animation: 'float 5s ease-in-out infinite' }} />
         <DoodleStar className={styles.doodle} style={{ position: 'absolute', top: '22%', left: '8%', color: 'var(--warm-lavender)', opacity: 0.4, animation: 'float 6s ease-in-out infinite reverse' }} />
@@ -200,7 +197,6 @@ export default function Home() {
       {/* PORTFOLIO / ABOUT */}
       <section className="section section-cream" id="about">
         <div className="container">
-          <div className="bg-character" style={{ top: '5%', right: '2%' }}>💡</div>
           <div className={styles.aboutGrid}>
             <div className={styles.portfolioShowcase + ' reveal'}>
               <a href="https://sayasjapanese.com" target="_blank" rel="noopener noreferrer" className={styles.portfolioCard}>
@@ -236,7 +232,6 @@ export default function Home() {
       {/* SERVICES */}
       <section className="section section-white" id="services">
         <div className="container">
-          <div className="bg-character" style={{ top: '8%', left: '-5%' }}>⚙️</div>
           <DoodleArrowCurve className={styles.doodle} style={{ position: 'absolute', top: '6%', right: '8%', color: 'var(--accent)', opacity: 0.3 }} />
           <DoodleCircle className={styles.doodle} style={{ position: 'absolute', bottom: '12%', left: '3%', color: 'var(--warm-lavender)', opacity: 0.25 }} />
           <DoodleZigzag className={styles.doodle} style={{ position: 'absolute', bottom: '8%', right: '5%', color: 'var(--accent)', opacity: 0.2 }} />

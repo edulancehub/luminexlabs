@@ -28,8 +28,6 @@ function GetStartedForm() {
     return (
         <>
             <section className={styles.hero}>
-                <div className="bg-character" style={{ top: '10%', left: '5%', fontSize: '200px' }}>🚀</div>
-                <div className="bg-character" style={{ bottom: '15%', right: '3%', fontSize: '200px' }}>💡</div>
                 <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '15%', right: '12%', color: 'var(--accent)', opacity: 0.45 }} />
                 <DoodleStar className={styles.doodle} style={{ position: 'absolute', bottom: '22%', left: '10%', color: 'var(--warm-lavender)', opacity: 0.35 }} />
                 <DoodleSquiggle className={styles.doodle} style={{ position: 'absolute', bottom: '35%', right: '6%', color: 'var(--accent)', opacity: 0.25 }} />

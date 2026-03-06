@@ -1,135 +1,149 @@
 'use client';
 
 /**
- * HeroIllustration — A colorful, playful cartoon-style SVG illustration
- * inspired by the AgencyUI design. Shows a team collaborating around
- * a monitor with abstract decorative shapes.
+ * HeroIllustration — Abstract technology / AI visualization.
+ * Geometric shapes, circuit-like patterns, neural network nodes,
+ * and glowing accent orbs. Clean, modern, dark-theme native.
  */
 export default function HeroIllustration({ className = '', style = {} }) {
     return (
         <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} style={style} aria-hidden="true">
-            {/* Background blob */}
-            <ellipse cx="260" cy="240" rx="190" ry="160" fill="#e8734a" opacity="0.06" />
+            <defs>
+                <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#e8734a" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#e8734a" stopOpacity="0" />
+                </radialGradient>
+                <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#c4b5d4" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#c4b5d4" stopOpacity="0" />
+                </radialGradient>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#e8734a" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#c4b5d4" stopOpacity="0.3" />
+                </linearGradient>
+            </defs>
 
-            {/* Desk / table */}
-            <rect x="110" y="280" width="280" height="12" rx="6" fill="#444" />
-            <rect x="200" y="292" width="8" height="60" rx="4" fill="#555" />
-            <rect x="292" y="292" width="8" height="60" rx="4" fill="#555" />
-            <rect x="180" y="348" width="140" height="8" rx="4" fill="#444" />
+            {/* Ambient glow orbs */}
+            <ellipse cx="320" cy="160" rx="120" ry="100" fill="url(#glow1)" />
+            <ellipse cx="180" cy="280" rx="100" ry="90" fill="url(#glow2)" />
 
-            {/* Monitor */}
-            <rect x="155" y="170" width="190" height="115" rx="10" fill="#1a1a2e" stroke="#333" strokeWidth="3" />
-            <rect x="165" y="180" width="170" height="92" rx="4" fill="#0f3460" />
+            {/* Central hexagonal frame */}
+            <polygon points="250,60 340,112 340,218 250,270 160,218 160,112" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="1.5" />
+            <polygon points="250,80 328,124 328,206 250,250 172,206 172,124" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
 
-            {/* Screen content — small UI elements */}
-            <rect x="175" y="192" width="50" height="6" rx="3" fill="#e8734a" opacity="0.9" />
-            <rect x="175" y="204" width="80" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
-            <rect x="175" y="214" width="65" height="4" rx="2" fill="rgba(255,255,255,0.2)" />
-            <rect x="175" y="224" width="72" height="4" rx="2" fill="rgba(255,255,255,0.15)" />
-
-            {/* Screen mini chart */}
-            <polyline points="280,250 290,240 300,245 310,228 322,235" stroke="#e8734a" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-            <circle cx="322" cy="235" r="3" fill="#e8734a" />
-
-            {/* Screen video call faces */}
-            <rect x="175" y="238" width="30" height="24" rx="4" fill="#16213e" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-            <circle cx="190" cy="247" r="6" fill="#ffd3b6" />
-            <circle cx="188" cy="245" r="1.2" fill="#333" />
-            <circle cx="192" cy="245" r="1.2" fill="#333" />
-            <path d="M186 250 Q190 253 194 250" stroke="#333" strokeWidth="0.8" fill="none" />
-
-            <rect x="210" y="238" width="30" height="24" rx="4" fill="#16213e" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-            <circle cx="225" cy="247" r="6" fill="#c4b5d4" />
-            <circle cx="223" cy="245" r="1.2" fill="#333" />
-            <circle cx="227" cy="245" r="1.2" fill="#333" />
-            <path d="M221 250 Q225 253 229 250" stroke="#333" strokeWidth="0.8" fill="none" />
-
-            <rect x="245" y="238" width="30" height="24" rx="4" fill="#16213e" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-            <circle cx="260" cy="247" r="6" fill="#a8e6cf" />
-            <circle cx="258" cy="245" r="1.2" fill="#333" />
-            <circle cx="262" cy="245" r="1.2" fill="#333" />
-            <path d="M256 250 Q260 253 264 250" stroke="#333" strokeWidth="0.8" fill="none" />
-
-            {/* Person 1 — Left side (sitting, waving) */}
-            <g transform="translate(60, 180)">
-                {/* Body */}
-                <ellipse cx="45" cy="85" rx="25" ry="18" fill="#e8734a" />
-                {/* Head */}
-                <circle cx="45" cy="52" r="20" fill="#ffd3b6" />
-                {/* Hair */}
-                <path d="M25 48 Q30 28 50 30 Q68 32 65 48" fill="#555" />
-                {/* Eyes */}
-                <circle cx="38" cy="52" r="2.5" fill="#1a1a2e" />
-                <circle cx="52" cy="52" r="2.5" fill="#1a1a2e" />
-                <circle cx="39" cy="51" r="0.8" fill="white" />
-                <circle cx="53" cy="51" r="0.8" fill="white" />
-                {/* Smile */}
-                <path d="M38 60 Q45 67 52 60" stroke="#c0392b" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                {/* Waving arm */}
-                <path d="M15 80 Q-5 55 10 35" stroke="#ffd3b6" strokeWidth="8" fill="none" strokeLinecap="round">
-                    <animateTransform attributeName="transform" type="rotate" values="0 15 80;-12 15 80;0 15 80" dur="2s" repeatCount="indefinite" />
-                </path>
-                {/* Hand */}
-                <circle cx="10" cy="35" r="5" fill="#ffd3b6">
-                    <animateTransform attributeName="transform" type="rotate" values="0 15 80;-12 15 80;0 15 80" dur="2s" repeatCount="indefinite" />
-                </circle>
+            {/* Inner rotating hexagon */}
+            <g opacity="0.6">
+                <polygon points="250,100 310,135 310,195 250,230 190,195 190,135" fill="none" stroke="#e8734a" strokeWidth="0.8" strokeDasharray="4 6">
+                    <animateTransform attributeName="transform" type="rotate" values="0 250 165;360 250 165" dur="40s" repeatCount="indefinite" />
+                </polygon>
             </g>
 
-            {/* Person 2 — Right side (standing, pointing at monitor) */}
-            <g transform="translate(340, 155)">
-                {/* Body */}
-                <rect x="15" y="65" width="45" height="70" rx="14" fill="#0f3460" />
-                {/* Head */}
-                <circle cx="37" cy="42" r="22" fill="#c4b5d4" />
-                {/* Hair */}
-                <path d="M15 35 Q20 10 42 15 Q60 18 58 40" fill="#555" />
-                {/* Glasses */}
-                <circle cx="30" cy="42" r="7" fill="none" stroke="#555" strokeWidth="1.5" />
-                <circle cx="44" cy="42" r="7" fill="none" stroke="#555" strokeWidth="1.5" />
-                <line x1="37" y1="42" x2="37" y2="42" stroke="#555" strokeWidth="1.5" />
-                {/* Eyes behind glasses */}
-                <circle cx="30" cy="42" r="2" fill="#1a1a2e" />
-                <circle cx="44" cy="42" r="2" fill="#1a1a2e" />
-                {/* Smile */}
-                <path d="M30 52 Q37 58 44 52" stroke="#8e6db0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                {/* Pointing arm */}
-                <path d="M15 80 Q-10 70 -25 60" stroke="#c4b5d4" strokeWidth="7" fill="none" strokeLinecap="round" />
-                <circle cx="-25" cy="60" r="4" fill="#c4b5d4" />
-            </g>
-
-            {/* Decorative elements — squiggle */}
-            <path d="M380 100 Q395 85 410 100 Q425 115 440 100" stroke="#e8734a" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.7">
-                <animateTransform attributeName="transform" type="translate" values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite" />
-            </path>
-
-            {/* Decorative — sparkle/star */}
-            <g transform="translate(420, 140)" opacity="0.8">
-                <line x1="0" y1="-10" x2="0" y2="10" stroke="#666" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="-10" y1="0" x2="10" y2="0" stroke="#666" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="-7" y1="-7" x2="7" y2="7" stroke="#666" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="7" y1="-7" x2="-7" y2="7" stroke="#666" strokeWidth="1.5" strokeLinecap="round" />
-                <animateTransform attributeName="transform" type="rotate" values="0 420 140;360 420 140" dur="8s" repeatCount="indefinite" additive="sum" />
-            </g>
-
-            {/* Decorative — circle dot */}
-            <circle cx="440" cy="185" r="8" fill="#e8734a" opacity="0.6">
-                <animate attributeName="r" values="8;10;8" dur="2.5s" repeatCount="indefinite" />
+            {/* AI brain / neural network nodes */}
+            {/* Center node */}
+            <circle cx="250" cy="165" r="8" fill="#e8734a" opacity="0.9">
+                <animate attributeName="r" values="8;10;8" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="250" cy="165" r="16" fill="none" stroke="#e8734a" strokeWidth="0.5" opacity="0.4">
+                <animate attributeName="r" values="16;22;16" dur="3s" repeatCount="indefinite" />
             </circle>
 
-            {/* Decorative — curly bracket / swirl top-left */}
-            <path d="M90 130 Q80 120 85 108 Q92 95 82 86" stroke="#666" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
-            <path d="M95 130 Q110 120 105 108 Q98 95 108 86" stroke="#2d2d2d" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
+            {/* Network nodes — ring 1 */}
+            <circle cx="200" cy="130" r="4" fill="#c4b5d4" opacity="0.8" />
+            <circle cx="300" cy="130" r="4" fill="#c4b5d4" opacity="0.8" />
+            <circle cx="320" cy="175" r="3.5" fill="#f5c9b3" opacity="0.7" />
+            <circle cx="180" cy="175" r="3.5" fill="#f5c9b3" opacity="0.7" />
+            <circle cx="210" cy="215" r="4" fill="#c4b5d4" opacity="0.8" />
+            <circle cx="290" cy="215" r="4" fill="#c4b5d4" opacity="0.8" />
 
-            {/* Decorative — small triangles */}
-            <polygon points="75,160 80,150 85,160" fill="#e8734a" opacity="0.4">
-                <animateTransform attributeName="transform" type="translate" values="0,0;0,-4;0,0" dur="2s" repeatCount="indefinite" />
-            </polygon>
+            {/* Connections from center to ring 1 */}
+            <line x1="250" y1="165" x2="200" y2="130" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
+            <line x1="250" y1="165" x2="300" y2="130" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
+            <line x1="250" y1="165" x2="320" y2="175" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
+            <line x1="250" y1="165" x2="180" y2="175" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
+            <line x1="250" y1="165" x2="210" y2="215" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
+            <line x1="250" y1="165" x2="290" y2="215" stroke="url(#lineGrad)" strokeWidth="0.8" opacity="0.5" />
 
-            {/* Bottom decoration — colorful confetti */}
-            <circle cx="130" cy="370" r="4" fill="#e8734a" opacity="0.5" />
-            <circle cx="370" cy="365" r="3" fill="#c4b5d4" opacity="0.5" />
-            <rect x="300" y="372" width="8" height="4" rx="2" fill="#0f3460" opacity="0.3" transform="rotate(20 304 374)" />
-            <rect x="160" y="368" width="6" height="4" rx="2" fill="#e8734a" opacity="0.3" transform="rotate(-15 163 370)" />
+            {/* Network nodes — ring 2 (outer) */}
+            <circle cx="160" cy="100" r="3" fill="#e8734a" opacity="0.5" />
+            <circle cx="340" cy="100" r="3" fill="#e8734a" opacity="0.5" />
+            <circle cx="370" cy="165" r="2.5" fill="#e8734a" opacity="0.4" />
+            <circle cx="130" cy="165" r="2.5" fill="#e8734a" opacity="0.4" />
+            <circle cx="170" cy="245" r="3" fill="#e8734a" opacity="0.5" />
+            <circle cx="330" cy="245" r="3" fill="#e8734a" opacity="0.5" />
+
+            {/* Connections ring 1 to ring 2 */}
+            <line x1="200" y1="130" x2="160" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+            <line x1="300" y1="130" x2="340" y2="100" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+            <line x1="320" y1="175" x2="370" y2="165" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+            <line x1="180" y1="175" x2="130" y2="165" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+            <line x1="210" y1="215" x2="170" y2="245" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+            <line x1="290" y1="215" x2="330" y2="245" stroke="rgba(255,255,255,0.08)" strokeWidth="0.6" />
+
+            {/* Cross connections (ring 1 to ring 1) */}
+            <line x1="200" y1="130" x2="300" y2="130" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+            <line x1="180" y1="175" x2="320" y2="175" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+            <line x1="210" y1="215" x2="290" y2="215" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
+
+            {/* Data flow particles — animated circles along paths */}
+            <circle r="2" fill="#e8734a" opacity="0.8">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M250,165 L300,130 L340,100" />
+            </circle>
+            <circle r="2" fill="#c4b5d4" opacity="0.8">
+                <animateMotion dur="5s" repeatCount="indefinite" path="M250,165 L180,175 L130,165" />
+            </circle>
+            <circle r="1.5" fill="#f5c9b3" opacity="0.7">
+                <animateMotion dur="3.5s" repeatCount="indefinite" path="M250,165 L210,215 L170,245" />
+            </circle>
+
+            {/* Floating dashboard card — top right */}
+            <g transform="translate(350, 60)" opacity="0.85">
+                <rect width="110" height="80" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+                <rect x="12" y="14" width="40" height="5" rx="2.5" fill="#e8734a" opacity="0.8" />
+                <rect x="12" y="24" width="60" height="3" rx="1.5" fill="rgba(255,255,255,0.15)" />
+                <rect x="12" y="32" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.1)" />
+                {/* Mini bar chart */}
+                <rect x="12" y="56" width="8" height="14" rx="2" fill="#e8734a" opacity="0.6" />
+                <rect x="24" y="50" width="8" height="20" rx="2" fill="#e8734a" opacity="0.8" />
+                <rect x="36" y="53" width="8" height="17" rx="2" fill="#e8734a" opacity="0.5" />
+                <rect x="48" y="46" width="8" height="24" rx="2" fill="#e8734a" opacity="0.9" />
+                <rect x="60" y="52" width="8" height="18" rx="2" fill="#c4b5d4" opacity="0.5" />
+                <animate attributeName="opacity" values="0.85;0.95;0.85" dur="4s" repeatCount="indefinite" />
+            </g>
+
+            {/* Floating code card — bottom left */}
+            <g transform="translate(40, 260)" opacity="0.7">
+                <rect width="100" height="70" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+                <rect x="10" y="12" width="12" height="4" rx="2" fill="#c4b5d4" opacity="0.6" />
+                <rect x="26" y="12" width="35" height="4" rx="2" fill="rgba(255,255,255,0.15)" />
+                <rect x="18" y="22" width="28" height="4" rx="2" fill="#e8734a" opacity="0.5" />
+                <rect x="50" y="22" width="20" height="4" rx="2" fill="rgba(255,255,255,0.1)" />
+                <rect x="18" y="32" width="40" height="4" rx="2" fill="rgba(255,255,255,0.12)" />
+                <rect x="10" y="42" width="15" height="4" rx="2" fill="#c4b5d4" opacity="0.4" />
+                <rect x="28" y="42" width="30" height="4" rx="2" fill="rgba(255,255,255,0.08)" />
+                <rect x="18" y="52" width="50" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
+                <animate attributeName="opacity" values="0.7;0.85;0.7" dur="5s" repeatCount="indefinite" />
+            </g>
+
+            {/* Orbiting ring */}
+            <ellipse cx="250" cy="165" rx="160" ry="60" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="0.8" strokeDasharray="3 8" transform="rotate(-15, 250, 165)">
+                <animateTransform attributeName="transform" type="rotate" values="-15 250 165;345 250 165" dur="60s" repeatCount="indefinite" />
+            </ellipse>
+
+            {/* Small decorative dots scattered */}
+            <circle cx="420" cy="300" r="2" fill="#e8734a" opacity="0.3">
+                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="80" cy="80" r="1.5" fill="#c4b5d4" opacity="0.3">
+                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="450" cy="50" r="1.5" fill="#f5c9b3" opacity="0.25" />
+            <circle cx="60" cy="350" r="2" fill="#e8734a" opacity="0.2" />
+
+            {/* Corner accent lines */}
+            <line x1="30" y1="40" x2="30" y2="70" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+            <line x1="30" y1="40" x2="60" y2="40" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+            <line x1="470" y1="350" x2="470" y2="380" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
+            <line x1="440" y1="380" x2="470" y2="380" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8" />
         </svg>
     );
 }

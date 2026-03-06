@@ -58,11 +58,6 @@
   left: -8%;
 }
 
-.hero>* {
-  position: relative;
-  z-index: 2;
-}
-
 .pills {
   display: flex;
   align-items: center;

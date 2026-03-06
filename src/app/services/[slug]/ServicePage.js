@@ -121,8 +121,6 @@ export default function ServicePage({ data, slug, related }) {
         <>
             {/* Hero */}
             <section className={styles.hero}>
-                <div className="bg-character" style={{ top: '8%', left: '2%', fontSize: '220px' }}>{bgChars[0]}</div>
-                <div className="bg-character" style={{ bottom: '10%', right: '3%', fontSize: '220px' }}>{bgChars[1]}</div>
                 <DoodleSparkle className={styles.doodle} style={{ position: 'absolute', top: '12%', right: '10%', color: 'var(--accent)', opacity: 0.45 }} />
                 <DoodleStar className={styles.doodle} style={{ position: 'absolute', bottom: '20%', left: '8%', color: 'var(--warm-lavender)', opacity: 0.35 }} />
                 <DoodleSquiggle className={styles.doodle} style={{ position: 'absolute', bottom: '32%', right: '5%', color: 'var(--accent)', opacity: 0.25 }} />
