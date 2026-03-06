@@ -72,7 +72,7 @@ export default function Chatbot() {
                     )}
                 </div>
                 <div className={styles.inputArea}>
-                    <input value={input} onChange={e => setInput(e.target.value)} onKeyPress={e => e.key === 'Enter' && sendMessage()} placeholder="Type a message..." />
+                    <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && sendMessage()} placeholder="Type a message..." />
                     <button onClick={sendMessage} disabled={loading}>➤</button>
                 </div>
             </div>

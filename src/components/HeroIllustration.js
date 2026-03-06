@@ -9,10 +9,10 @@ export default function HeroIllustration({ className = '', style = {} }) {
     return (
         <svg viewBox="0 0 500 420" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} style={style} aria-hidden="true">
             {/* Background blob */}
-            <ellipse cx="260" cy="240" rx="190" ry="160" fill="#fef3ec" opacity="0.6" />
+            <ellipse cx="260" cy="240" rx="190" ry="160" fill="#e8734a" opacity="0.06" />
 
             {/* Desk / table */}
-            <rect x="110" y="280" width="280" height="12" rx="6" fill="#2d2d2d" />
+            <rect x="110" y="280" width="280" height="12" rx="6" fill="#444" />
             <rect x="200" y="292" width="8" height="60" rx="4" fill="#555" />
             <rect x="292" y="292" width="8" height="60" rx="4" fill="#555" />
             <rect x="180" y="348" width="140" height="8" rx="4" fill="#444" />
@@ -57,7 +57,7 @@ export default function HeroIllustration({ className = '', style = {} }) {
                 {/* Head */}
                 <circle cx="45" cy="52" r="20" fill="#ffd3b6" />
                 {/* Hair */}
-                <path d="M25 48 Q30 28 50 30 Q68 32 65 48" fill="#2d2d2d" />
+                <path d="M25 48 Q30 28 50 30 Q68 32 65 48" fill="#555" />
                 {/* Eyes */}
                 <circle cx="38" cy="52" r="2.5" fill="#1a1a2e" />
                 <circle cx="52" cy="52" r="2.5" fill="#1a1a2e" />
@@ -82,7 +82,7 @@ export default function HeroIllustration({ className = '', style = {} }) {
                 {/* Head */}
                 <circle cx="37" cy="42" r="22" fill="#c4b5d4" />
                 {/* Hair */}
-                <path d="M15 35 Q20 10 42 15 Q60 18 58 40" fill="#2d2d2d" />
+                <path d="M15 35 Q20 10 42 15 Q60 18 58 40" fill="#555" />
                 {/* Glasses */}
                 <circle cx="30" cy="42" r="7" fill="none" stroke="#555" strokeWidth="1.5" />
                 <circle cx="44" cy="42" r="7" fill="none" stroke="#555" strokeWidth="1.5" />
@@ -104,10 +104,10 @@ export default function HeroIllustration({ className = '', style = {} }) {
 
             {/* Decorative — sparkle/star */}
             <g transform="translate(420, 140)" opacity="0.8">
-                <line x1="0" y1="-10" x2="0" y2="10" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="-10" y1="0" x2="10" y2="0" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" />
-                <line x1="-7" y1="-7" x2="7" y2="7" stroke="#2d2d2d" strokeWidth="1.5" strokeLinecap="round" />
-                <line x1="7" y1="-7" x2="-7" y2="7" stroke="#2d2d2d" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="0" y1="-10" x2="0" y2="10" stroke="#666" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="-10" y1="0" x2="10" y2="0" stroke="#666" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="-7" y1="-7" x2="7" y2="7" stroke="#666" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="7" y1="-7" x2="-7" y2="7" stroke="#666" strokeWidth="1.5" strokeLinecap="round" />
                 <animateTransform attributeName="transform" type="rotate" values="0 420 140;360 420 140" dur="8s" repeatCount="indefinite" additive="sum" />
             </g>
 
@@ -117,7 +117,7 @@ export default function HeroIllustration({ className = '', style = {} }) {
             </circle>
 
             {/* Decorative — curly bracket / swirl top-left */}
-            <path d="M90 130 Q80 120 85 108 Q92 95 82 86" stroke="#2d2d2d" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
+            <path d="M90 130 Q80 120 85 108 Q92 95 82 86" stroke="#666" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
             <path d="M95 130 Q110 120 105 108 Q98 95 108 86" stroke="#2d2d2d" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.5" />
 
             {/* Decorative — small triangles */}

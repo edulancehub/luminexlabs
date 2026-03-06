@@ -203,19 +203,23 @@ export default function Home() {
           <div className="bg-character" style={{ top: '5%', right: '2%' }}>💡</div>
           <div className={styles.aboutGrid}>
             <div className={styles.portfolioShowcase + ' reveal'}>
-              <div className={styles.portfolioCard}>
-                <Image src="/portfolio-web.png" alt="AI Dashboard — Website Project" width={600} height={400} className={styles.portfolioImg} />
-                <div className={styles.portfolioLabel}><span>AI Dashboard</span><span className={styles.tag}>Website</span></div>
-              </div>
+              <a href="https://sayasjapanese.com" target="_blank" rel="noopener noreferrer" className={styles.portfolioCard}>
+                <Image src="/portfolio-web.png" alt="Sayas Japanese — Restaurant Website" width={600} height={400} className={styles.portfolioImg} />
+                <div className={styles.portfolioLabel}><span>sayasjapanese.com</span><span className={styles.tag}>Recent Project</span></div>
+              </a>
               <div className={styles.portfolioRow}>
-                <div className={styles.portfolioCardSmall}>
-                  <Image src="/portfolio-app.png" alt="Mobile App Project" width={280} height={200} className={styles.portfolioImg} />
-                  <div className={styles.portfolioLabel}><span>Smart App</span><span className={styles.tag}>Mobile</span></div>
-                </div>
-                <div className={styles.portfolioCardSmall}>
-                  <Image src="/portfolio-ai.png" alt="AI Automation Project" width={280} height={200} className={styles.portfolioImg} />
-                  <div className={styles.portfolioLabel}><span>AI Automation</span><span className={styles.tag}>Pipeline</span></div>
-                </div>
+                <a href="https://monojog.app" target="_blank" rel="noopener noreferrer" className={styles.portfolioCardSmall}>
+                  <Image src="/portfolio-ai.png" alt="Monojog — AI Platform" width={280} height={200} className={styles.portfolioImg} />
+                  <div className={styles.portfolioLabel}><span>monojog.app</span><span className={styles.tag}>Web App</span></div>
+                </a>
+                <a href="https://bongoportus.com" target="_blank" rel="noopener noreferrer" className={styles.portfolioCardSmall}>
+                  <Image src="/portfolio-app.png" alt="BongoPortus — Digital Platform" width={280} height={200} className={styles.portfolioImg} />
+                  <div className={styles.portfolioLabel}><span>bongoportus.com</span><span className={styles.tag}>Website</span></div>
+                </a>
+              </div>
+              <div className={styles.portfolioCardSmall}>
+                <Image src="/portfolio-app.png" alt="Monojog Mobile App" width={280} height={200} className={styles.portfolioImg} />
+                <div className={styles.portfolioLabel}><span>Monojog Mobile App</span><span className={styles.tag}>Mobile App</span></div>
               </div>
             </div>
             <div className="reveal reveal-delay-2">

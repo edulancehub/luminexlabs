@@ -339,10 +339,10 @@ img {
 
 /* ── Glass Card ── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
 }
 
@@ -358,9 +358,9 @@ img {
 
 /* Reveal */
 .reveal {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
 }
 
 .reveal.visible {
